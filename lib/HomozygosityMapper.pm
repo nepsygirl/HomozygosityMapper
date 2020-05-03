@@ -133,15 +133,17 @@ sub CreateGenotypesTableVCF {
 	$index_pref=~s/\./_/g;
 	if ($self->{new}){
 		my $sql  = qq !
-		CREATE TABLE $self->{data_prefix}vcfgenotypes_! . $self->{project_no} . qq ! (
+		CREATE TABLE $self->{data_prefix}vcfgenotypes_! . $self->{project_no} . qq ! ( #erstelle eine tabelle 
 		sample_no SMALLINT,
-		chromosome SMALLINT,
+		#chromosome SMALLINT,
 		position INTEGER,
-		genotype SMALLINT,
+		#genotype SMALLINT,
+		genotype BIT(4),
 		block_length	SMALLINT,
 			CONSTRAINT "pk_genotypes_!
 		  .$index_pref.$self->{project_no}
-		  . qq !" PRIMARY KEY (chromosome, position, sample_no) ) !;
+		  #. qq !" PRIMARY KEY (chromosome, position, sample_no) ) !;
+		   . qq !" PRIMARY KEY (position, sample_no) ) !;
 		$self->{dbh}->do($sql) || $self->PegOut('DB error',{list=>$DBI::errstr});
 		$self->{rollback}->{tables}->{qq ! $self->{data_prefix}vcfgenotypes_! . $self->{project_no}}=1;
 		$sql="CREATE INDEX i_".$index_pref."vcfgenotypes_" . $self->{project_no} .
