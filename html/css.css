@@ -1,0 +1,98 @@
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+}
+td {
+	font-size: 12pt;
+	vertical-align: middle;
+}
+h1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 24pt;
+	vertical-align: top;
+	margin: 0px;
+	padding: 0px;
+}
+h2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18pt;
+}
+
+.bold {
+	font-weight: bold;
+}
+.red {
+	color: red;
+}
+.blue {
+	color: blue;
+}
+.green {
+	color: green;
+}
+.yellow {
+	color: yellow;
+}
+.violet {
+	color: violet;
+}
+.grey {
+	color: #CCCCCC;
+}
+small {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt   !important;
+	vertical-align: top;
+}
+.light {
+	font-weight: normal  !important;
+}
+.popup {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	vertical-align: top;
+	background-color: #CCCCCC;
+	padding-all: 5px
+}
+.code {
+	font-family: "Courier New", Courier, mono;
+}
+.blue_subheading {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+	font-style: italic;
+	font-weight: bold;
+	color: #0000FF;
+}
+.HTML_element {
+	background-color: #9999FF;
+	padding: 3px;
+	font-size: 10pt;
+	-moz-border-radius: 11px;
+	border-radius: 11px;
+}
+A:visited {
+	color: blue;
+}
+li {
+	vertical-align: top;
+}
+.species {
+	line-height: 1.5em;
+	font-size: 9pt;
+}
+.login_iframe {
+	text-align: center;
+	vertical-align: bottom;
+	width: 100%;
+	height: 100%
+	margin-top: -0.5em;
+	}
+.login_container {
+	display: inline-block;
+	height: 3em;
+	width: 100%;
+	border: 2px solid blue;
+	border-radius: 10px;
+}

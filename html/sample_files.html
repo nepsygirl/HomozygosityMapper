@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>HomozygosityMapper - input file formats</TITLE>
+<LINK href="css.css" rel="stylesheet" type="text/css">
+<LINK href="doc.css" rel="stylesheet" type="text/css">
+<LINK rel="shortcut icon" href="/HomozygosityMapper/HM_favicon.png" type="image/png">
+<LINK rel="icon" href="/HomozygosityMapper/HM_favicon.png" type="image/png">
+<STYLE type="text/css">
+<!--
+a {
+	color: blue;
+	text-decoration: none; 
+}
+a:hover {
+	color: black !important;
+	text-decoration:underline; 
+}
+
+a:visited {
+	color: blue;
+}
+.heading {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16pt;
+	background-color: #CCCCCC;
+	text-indent: 20px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+}
+ul {
+	list-style-position: inside;
+	line-height: 10pt;
+	margin: 0px;
+	padding-left: 14px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+li {
+	text-align: left;
+	margin-left: 1px;
+	padding-left: 1px;
+	list-style-position: outside;
+	line-height: 9pt;
+	font-size: 10pt;
+}
+td {
+	vertical-align: top;
+	font-weight: normal;
+	font-size: 10pt !important;
+	text-align: right;
+}
+.left {
+	text-align: left;
+	}
+.bottom {
+	font-weight: normal !important;
+	text-align: center !important;
+	font-style: oblique !important;
+	font-size: 9pt;
+}
+
+-->
+</STYLE></HEAD>
+<BODY>
+<TABLE  align="center" cellpadding="5" width="600">
+  <TBODY>
+
+ <TR>
+      <TD><IMG src="HM_logo_small.png" alt="HomozgosityMapper pedigree" width="111" height="124" align="left">        <H1 align="center">    
+      HomozygosityMapper</H1> <H2 align="center" style="line-height: 25pt; margin:0" class="blue">Input file formats</H2></TD>
+    </TR>
+<TR><TD class="left">
+<P class="heading">SNP genotype files</P>
+<P>Genotype files must be tabular with the samples as columns and the SNPs  as rows, they can also be zipped or gzipped. <BR>
+	Since there appears to be an unlimited array of different formats for genotype files, we specify here those that can be imported into HomozygosityMapper without any further manipulation.<BR> 
+	In every file, lines starting with the  number sign (#) will be ignored.  In each line, the SNP ID (Affymetrix ID or, with Illumina files, dbSNP ID) must be directly followed by the genotypes. The genotypes must be written in one fo the following ways: </P>
+<H4>Affymetrix (<A href="SampleGenotypesTutorial.zip">example</A> [Chip: Mapping50K_Hind240])</H4>
+<TABLE border="0" cellpadding="3">
+  <TR>
+    <TD class="left">SNP ID</TD>
+    <TD>Sample01</TD>
+    <TD>Sample02</TD>
+    <TD>Sample03</TD>
+    <TD>Sample04</TD>
+    <TD>Sample08</TD>
+    <TD>Sample09</TD>
+  </TR>
+<TR><TD class="left">SNP_A-1513509</TD><TD>BB</TD><TD>BB</TD><TD>AB</TD><TD>BB</TD><TD>AB</TD><TD>BB</TD>
+</TR>
+<TR><TD class="left">SNP_A-1518411</TD><TD>BB</TD><TD>BB</TD><TD>BB</TD><TD>BB</TD><TD>BB</TD><TD>BB</TD>
+</TR>
+<TR><TD class="left">SNP_A-1511066</TD><TD>AB</TD><TD>NoCall</TD>
+<TD>AA</TD><TD>AA</TD><TD>AA</TD><TD>AA</TD
+></TR>
+<TR><TD class="left">SNP_A-1517367</TD><TD>AA</TD><TD>AB</TD><TD>AB</TD><TD>AA</TD><TD>AA</TD><TD>AB</TD></TR>
+</TABLE>
+
+<BR>
+  Instead of AA/AB/BB/NoCall, also the 'number format' (0,1,2,-1) can be used.<BR><BR>The following columns will be ignored and do not have to be removed from the file:<UL>
+  	<LI>dnsnp rs id</LI>
+  	<LI>tsc id</LI>
+  	<LI>chromosome</LI>
+  	<LI>physical position</LI>
+  </UL>
+  		
+  		
+   <H4>Illumina</H4>
+
+<TABLE border="0" cellpadding="3">
+  <TR>
+  	<TD class="left">DBSNP*</TD>
+    <TD>Sample01</TD>
+    <TD>Sample02</TD>
+    <TD>Sample03</TD>
+    <TD>Sample05</TD>
+    <TD>Sample06</TD>
+  </TR>
+<TR><TD class="left">rs10000010</TD><TD>3</TD><TD>0</TD><TD>3</TD><TD>2</TD><TD>1</TD></TR>
+<TR><TD class="left">rs10000023</TD><TD>3</TD><TD>3</TD><TD>2</TD><TD>1</TD><TD>2</TD></TR>
+<TR><TD class="left">rs10000030</TD><TD>3</TD><TD>3</TD><TD>0</TD><TD>2</TD><TD>3</TD></TR>
+<TR><TD class="left">rs1000007</TD><TD>0</TD><TD>3</TD><TD>1</TD><TD>0</TD><TD>0</TD></TR>
+<TR><TD class="left">rs10000092</TD><TD>3</TD><TD>0</TD><TD>1</TD><TD>3</TD><TD>0</TD></TR>
+<TR><TD class="left">rs10000121</TD><TD>1</TD><TD>1</TD><TD>1</TD><TD>2</TD><TD>2</TD></TR>
+</TABLE>
+<P><BR>
+	Instead of 1/2/3/0, also the character format  (<EM>AA</EM>, <EM>AB</EM>, <EM>BB</EM>, --) can be used.<BR>
+	Additionally, real genotypes are allowed. Please note that this will drastically reduce the upload  speed. <BR>
+	*) As dbSNP IDs are very humane, in other species the column 'SNP NAME' is used instead. </P>
+	
+<A NAME="vcf"></A><P class="heading">VCF file (Next Generation Sequencing genotypes) </P>
+<P>The VCF file must have the following columns:</P>
+<PRE>
+#CHROM POS    ID  REF  ALT   QUAL  FILTER  INFO  FORMAT  Sample1  Sample2  Sample3 (...) 
+chr1   14930  .   A    G     .     .       .     GT:DP   1/1:31   0/1:30   0/0:23
+</PRE>
+<P>The content of the columns 'ID', 'QUAL', 'FILTER', 'INFO' is ignored. The format 
+attribute is used to determine which part of the samples' genotypes is the genotype and 
+which one is the coverage. Please note that the <span class="code">DP</span> flag <b>must</b> be included 
+in the <b><span class="code">FORMAT</span> string</b> (not only in <span class="code">INFO</span>!), unless you set the minimum coverage 
+				value in the upload 	interface to 0. Without the DP flag in <span class="code">FORMAT</span> it is impossible to exclude 
+				genotypes with a low coverage because the DP information in <span class="code">INFO</span> aggegrates the coverage over all samples!<BR>The file <B>must</B> be sorted by chromosome. </P>
+<P>Sites at which the genotype is uncertain (two alt alleles) are skipped. </P>
+<P><A href="VCF_Sample_File.zip">Here is a sample file</A>.<br>
+(Cases: Sample1, Sample2; controls Sample3, Sample4 - should yield a hit on chr15.)</P>
+You can generate such a file from your aligned NGS data with <A HREF="http://samtools.sourceforge.net/">SAMtools</A> like this:
+<pre>
+# all BAM files in the same directory
+samtools mpileup -D -gf /path/to/genome.fa *.bam | bcftools view -c -g - > filename.vcf
+# BAM files in different directories 
+samtools mpileup -D -gf /path/to/genome.fa /path/to/bam1.bam /path/to/bam2.bam | bcftools view -c -g - > filename.vcf
+# reference genome: /path/to/genome.fa
+# output file: filename.vcf</pre>
+								GATK offers a similar option.<br>
+Please read the <A HREF="http://samtools.sourceforge.net/samtools.shtml">manuals of SAMtools / bcftools</A> to find the appropriate settings for your data.
+
+</TD>
+</TR>
+<TR>
+	<TD class="left">&nbsp;</TD>
+</TR>
+</TBODY>
+</TABLE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>HomozygosityMapper - (re)analyse a project</title>
+<link href="/HomozygosityMapper/css.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="/HomozygosityMapper/HM_favicon.png" type="image/png">
+<link rel="icon" href="/HomozygosityMapper/HM_favicon.png" type="image/png">
+<style type="text/css">
+<!--
+textarea{
+overflow:auto;
+}
+small {
+font-size:8pt;
+font-weight:normal;
+}
+select {
+line-height:18pt;
+}
+td {
+	font-size: 12pt;
+	font-weight: bolder;
+	vertical-align: top;
+}
+-->
+</style>
+
+</head>
+
+<body><form action="/HM/Analyse.cgi" method="post" enctype="multipart/form-data" name="form1">
+<input type="hidden" name="species" value="<TMPL_VAR NAME=species>">
+<input type="hidden" name="unique_id" value="<TMPL_VAR NAME=unique_id>">
+<TABLE align="center" cellspacing="12" width="800">
+	<tr>
+		<td colspan="2">
+<TABLE border="0" cellpadding="0" cellspacing="0">
+				<TR>
+					<TD width="120">
+					<A HREF="/HomozygosityMapper/index.html">
+						<IMG src="/HomozygosityMapper/HM_logo_small.png" alt="HomozgosityMapper pedigree" width="111" height="124" align="left" style="border: 0pt none;">
+					</A>
+					</TD>
+					<TD width="460">
+						<H1 align="center">HomozygosityMapper</H1>
+						<H4 align="center" style="line-height: 35pt; margin:0">
+							<i><TMPL_VAR NAME=species_latin_name></i></H4>
+						<H2 align="center" style="line-height: 15pt; margin:0" class="blue">(Re)analyse your genotypes</H2>
+					</TD>
+					<TD width="120" style="vertical-align:middle">
+					<A HREF="/<TMPL_VAR NAME=species>">
+						<IMG src="/HomozygosityMapper/<TMPL_VAR NAME=icon>" alt='<TMPL_VAR NAME=icon_desc>'  align="right" style="border: 0pt none;">
+					</A>						
+					</TD>
+				</TR>
+			</TABLE>
+		</td>
+	</tr>
+
+  <tr> 
+    <td>project  </td>
+    <td><select name="project_no" onChange="ReAnalyse()"><TMPL_VAR NAME=projects>
+    </select></td>
+  </tr>
+  <tr> 
+    <td>re-analyse</td>
+    <td><select name="reanalysis_no" onChange="ReAnalyse()">
+    <option>new</option>
+    <TMPL_VAR NAME=reanalysis>
+    </select></td>
+  </tr>  
+    <tr> 
+    <td style="vertical-align:top">analysis name </td>
+    <td><input name="analysis_name" type="text" value="<TMPL_VAR NAME=analysis_name>" size="40" maxlength="40"></td>
+  </tr> 
+  <tr> 
+    <td style="vertical-align:top">analysis description </td>
+    <td><textarea name="analysis_description" cols="50" rows="4"  style="sc"><TMPL_VAR NAME=analysis_description></textarea></td>
+  </tr> 
+  
+   <tr> 
+    <td style="vertical-align:top">cases </td>
+    <td><textarea name="cases_ids" cols="50" rows="4"  style="sc"><TMPL_VAR NAME=cases_ids></textarea></td>
+  </tr>
+   <tr>
+     <td style="vertical-align:top">controls</td>
+     <td><textarea name="controls_ids" cols="50" rows="4"><TMPL_VAR NAME=controls_ids></textarea></td>
+   </tr>
+   <tr>
+    <td>homogeneity
+</td>
+     <td style="vertical-align:top"> 
+     <input type="checkbox" name="homogeneity_required"  value="1" <TMPL_VAR NAME=homogeneity_required>> 
+     require genetic homogeneity<br>
+     	<small>Checking this box will <b>only</b> detect regions in which 
+     		<b>all</b> affected individuals are homozygous. Use this for searches
+     		within single families.<br></small>
+    exclude homozygous stretches in controls &gt;= <input type="text" name="exclusion_length" size="3" value="<TMPL_VAR NAME=exclusion_length>" ><small>(recommended: <TMPL_VAR NAME=exclusion_length_recommended>)<br></small>
+     	<small>Regions with the 'disease haplotype' in controls will be excluded when they are longer than this value. Use -1 if you don't want to use controls for region exclusion.</small>
+   </td>
+   </tr>   
+   <tr>
+     <td>allele frequencies  </td>
+     <td><select name="allele_frequencies">
+     	 <option value="">none</option>
+     	 <TMPL_VAR NAME=allele_freqs>
+     </select>&nbsp;&nbsp;&nbsp;<SMALL class="red">not possible for VCF-based genotypes</SMALL>
+     </td>
+   </tr>
+   <tr>
+     <td>limit block length   </td>
+     <td><input name="limit_block_length" type="text" size="4" maxlength="4" value="<TMPL_VAR NAME=limit_block_length>">
+       <small>leave empty to use standard settings for chip </small></td>
+   </tr>
+   <tr>
+     <td>only count blocks longer than</td>
+     <td><input name="lower_limit" type="text" size="4" maxlength="4" value="<TMPL_VAR NAME=lower_limit>">
+       <small>lower limit; default is 0 (i.e. every homozygous block is counted)</small></td>
+   </tr>     
+  <tr> 
+    <td><A HREF="/HM/AnalysisSettings.cgi">reset</A></td>
+    <td><input type="submit" name="Submit" value="Submit">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A href="/HomozygosityMapper/documentation.html#analysis" target="doc">help</A>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A href="/HomozygosityMapper/tutorial#analysis" target="doc">tutorial</A></td>
+  </tr>
+</table>
+<TMPL_VAR NAME=out>
+</form>
+<script>
+function ReAnalyse (undef) {
+//	alert (document.form1.target);
+	document.form1.action='/HM/AnalysisSettings.cgi';
+	document.form1.submit();
+}
+</script> 
+</body>
+</html>

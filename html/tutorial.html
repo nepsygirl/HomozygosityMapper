@@ -1,0 +1,220 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>HomozygosityMapper - Tutorial</title>
+<link href="css.css" rel="stylesheet" type="text/css">
+<LINK href="doc.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="/HomozygosityMapper/HM_favicon.png" type="image/png">
+<link rel="icon" href="/HomozygosityMapper/HM_favicon.png" type="image/png">
+</head>
+<body>
+<table  align="center" cellpadding="5" width="800" >
+  <tbody>
+	 <tr>
+      <td ><img src="HM_logo_small.png" alt="HomozgosityMapper pedigree" width="111" height="124" align="left">        <h1 align="center">      HomozygosityMapper</h1>
+      <H2 align="center" style="line-height: 25pt; margin:0" class="blue">Tutorial</H2></td>
+    </tr>
+		<tr><td style="line-height: 9pt;">&nbsp;</td>
+		</tr>
+ <tr><td>
+<p><small><i>best viewed with Mozilla Firefox</i></small></p> 	
+ 	
+<p>This tutorial is as brief as possible, if you are interested in more detailed information or in the 
+implementation, please consult the <a href="documentation.html" target="_blank">documentation</a> or the 
+<a href="technical_documentation.html" target="_blank">technical documentation</a>, respectively. Unless 
+mentioned here, there is no need to change any settings on the interfaces. </p>
+<p>Please note that projects created without a personal account can be deleted by anyone unless you decide 
+to make them private. In this case, you
+will have to use special URLs to work with your data. In any case, we delete data uploaded as guest (i.e. 
+without a login) periodically 
+(they are kept for at least 2 months).
+If you want to work with real data, you should hence consider to 
+<a href="/HomozygosityMapper/CreateProfile.html" target="_blank">create a personal account</a>. 
+</p>
+<p>If you are only interested in the output of HomozygosityMapper, you don't have to upload genotypes first. 
+Simply open the <a href="/HM/ChooseProject.cgi" target="_blank">query projects</a> page and select 
+one of the existing public projects and move to <a href="#queryprojects">section 3</a> of this tutorial. 
+The sample files used in this tutorial are also there, under the intuitive names 'tutorial', or 'tutorial_VCF', respectively. Click 
+<a href="/HM/ShowRegion.cgi?analysis_no=85&species=human" target="_blank">here for SNP genotypes</a> or 
+<a href="/HM/ShowRegion.cgi?analysis_no=52822&species=human" target="_blank">here for NGS (VCF) genotypes</a>
+ to access the project directly and continue with <a href="genomewidehomozygosity">section 4</a>.</p>
+<p>&nbsp;</p>
+<h3><a name="upload"></a>1. Upload genotypes  </h3>
+
+
+<p>First, you must upload genotypes. Please open the <a href="/HM/UploadSettings.cgi" target="_blank">upload page</a>.
+<h4>SNP genotypes</h4>
+<table width="95%" border="1" align="center">
+<tr><td>
+<p>For this tutorial, sample genotypes (with a homozygous region on 
+chromosome 7) exist - download them <a href="SampleGenotypesTutorial.zip">here</a>.  </p>
+<ol>
+  <li>Under <span class="HTML_element">new project name</span>, choose a unique project name ('test' is 
+  already in use!). This name must <b>not</b> contain any non-alphanumeric characters; only letters, digits 
+  and undescores are allowed.</li>
+  <li>Set <span class="HTML_element">chip</span> to 'Affymetrix 50K Hind240'.</li>
+  <li>Under <span class="HTML_element">genotype file</span>, select the file you want to upload (i.e. 
+  <a href="SampleGenotypesTutorial.zip">this file</a>).</li>
+  <li>Click on <span class="HTML_element">submit</span> and have a cup of tea (or a pint of beer, respectively) 
+  - the upload will take about two minutes. You can watch the process in the browser (if no coffee or beer 
+  is available). </li>
+  <li>When the upload is complete, click on the link 'Analyse your genotypes'.</li>
+  </ol>
+</td></tr></table>
+<h4>NGS genotypes (VCF)</h4>
+<table width="95%" border="1" align="center">
+<tr><td>
+<p>For this tutorial, a sample VCF (variant call format) file (with a homozygous region on 
+chromosome 15) exist - download it <a href="VCF_Sample_File.zip">here</a>.</p>
+<ol>
+  <li>Under <span class="HTML_element">new project name</span>, choose a unique project name ('test' is 
+  already in use!). This name must <b>not</b> contain any non-alphanumeric characters; only letters, digits 
+  and undescores are allowed.</li>
+  <li>Set <span class="HTML_element">chip</span> to 'VCF'.</li>
+  <li>Under <span class="HTML_element">genotype file</span>, select the file you want to upload (i.e. 
+  <a href="VCF_Sample_File.zip">this file</a>).</li>
+  <li>Click on <span class="HTML_element">submit</span> and have a cup of tea (or a pint of beer, respectively) 
+  - the upload will take about two minutes. You can watch the process in the browser (if no coffee or beer 
+  is available). </li>
+  <li>When the upload is complete, click on the link 'Analyse your genotypes'.</li>
+  </ol>
+</td></tr></table>  
+  <p><b>Don't check the <span class="HTML_element">access restriction</span> button unless you work with a personal account.</b></p>
+Please <a href="#delete">delete</a> your genotypes when you've finished the tutorial.
+
+<p>&nbsp;</p>
+<h3><a name="analysis"></a>2. Analyse your genotypes</h3>
+<p>Open the <a href="/HM/AnalysisSettings.cgi" target="_blank">analysis page</a> (unless it's already open). </p>
+<h4>SNP genotypes</h4>
+<table width="95%" border="1" align="center">
+<tr><td>
+
+<ol>
+  <li>Select your project under <span class="HTML_element">project</span> (if you followed the link after the 
+  upload it should already be selected) or <A HREF="/HM/AnalysisSettings.cgi?project_no=46" target="_blank">click here</A> 
+  to use the sample genotypes already in the database.
+  
+  <li>Under <span class="HTML_element">analysis name</span>, give your analysis a name (again, 'test' is not a good choice).</li>
+  <li>In the <span class="HTML_element">analysis description</span> field, enter some text explaining the analysis to you and, maybe, others. </li>
+  <li>Enter the affected samples from your file under <span class="HTML_element">cases</span>: NA07019,
+      NA06993,
+      NA07034,
+      NA07056,
+      NA07357</li>
+  <li>Enter the unaffected samples under <span class="HTML_element">controls</span>:  NA10835,
+NA10846,
+NA10854</li>
+  <li>Select 'from controls' under <span class="HTML_element">allele frequencies</span> to see the observed vs. the expected homozygosity.</li>
+  <li>Click on <span class="HTML_element">submit</span> and watch the screen - 30 seconds won't be enough for another coffee or beer.</li>
+  <li>When the analysis is accomplished, click on the 'Show results' link.  </li>
+</ol>
+</td></tr></table>
+<h4>NGS genotypes (VCF)</h4>
+<table width="95%" border="1" align="center">
+<tr><td>
+<p>Open the <a href="/HM/AnalysisSettings.cgi" target="_blank">analysis page</a> (unless it's already open). </p>
+<ol>
+  <li>Select your project under <span class="HTML_element">project</span> (if you followed the link after the 
+  upload it should already be selected) or 
+  <A HREF="/HM/AnalysisSettings.cgi?species=human&project_no=200753" target="_blank">click here</A> 
+  to use the sample genotypes already in the database.
+  
+  <li>Under <span class="HTML_element">analysis name</span>, give your analysis a name (again, 'test' is not a good choice).</li>
+  <li>In the <span class="HTML_element">analysis description</span> field, enter some text explaining the analysis to you and, maybe, others. </li>
+  <li>Enter the affected samples from your file under <span class="HTML_element">cases</span>: Sample1, Sample2</li>
+  <li>Enter the unaffected samples under <span class="HTML_element">controls</span>:  Sample3, Sample4</li>
+  <li>Click on <span class="HTML_element">submit</span> and watch the screen - sadly, one minute won't be enough for another coffee or beer.</li>
+  <li>When the analysis is accomplished, click on the 'Show results' link.  </li>
+</ol>
+</td></tr></table>
+<p>&nbsp;</p>
+<h3><a name="queryprojects" id="queryprojects"></a>3. Query a project</h3>
+<p>Open the <a href="/HM/ChooseProject.cgi" target="_blank">query projects</a> page (unless it's already open) or 
+   click <a href="/HM/ShowRegion.cgi?analysis_no=85&species=human" target="_blank">
+here for SNP genotypes</a> or <a href="/HM/ShowRegion.cgi?analysis_no=52822&species=human" target="_blank">
+here for NGS (VCF) genotypes</a> to access the sample data directly.</i></p></p>
+
+<ol>
+  <li>Select your analysis in the list (if you followed the link after the analysis it should already be selected). </li>
+  <li>Click on submit. </li></ol>
+
+<p>&nbsp;</p> 
+  
+<h3><a name="genomewidehomozygosity" id="genomewidehomozygosity"></a>4. Genome-wide homozygosity </h3>
+
+    <p>After selecting the respective analysis, the homozygosity scores will be displayed as a genome-wide bar chart. Scores higher than 
+    80% of the maximum score will be displayed as red bars to highlight them. Above the homozygosity scores, the ratio of observed vs, 
+    expected homozygous genotypes will be displayed (see the documentation for details). Below the bar chart, all scores above 80% of the 
+    maximum are listed (sorted by their score) and direct links to these regions are provided. On top of this table, 'broad' regions are 
+    displayed - in these, smaller decreases of the score within a homozygous region are neglected. At the bottom of the table, 'narrow' 
+    regions with sharp limits follow. If you expect some degree of heterozygosity, you should consider the 'broad' regions. </p>
+	Below the regions, links to GeneDistiller 
+					and export options are displayed:<br>
+					<ul>
+					<li>With <A HREF="http://www.genedistiller.org/index2.html" target="_blank">GeneDistiller</A>, 
+					candidate genes in all long homozygous regions can be queried at once.</li>
+					<li>It is also possible to generate files to perform a fine-mapping 
+					of the potential disease regions via 
+					<A HREF="http://gmc.mdc-berlin.de/alohomora/" target="_blank">Alohomora</A>. 
+					A short manual is provided after the export.</li>
+					<li>For the enrichment needed for 
+					deep sequencing approaches, HomozygosityMapper can produce *.bed files 
+					containing either all regions or the complete genes/only the exons contained 
+					within them. </li></ul>
+    <ol>
+      <li>Move the mouse pointer on the highest score in the bar chart (on chromosome 7 with the sample genotypes) and left-click. </li>
+    </ol>
+    <p><i>Click <a href="/HM/ShowRegion.cgi?analysis_no=85&species=human" target="_blank">
+here for SNP genotypes</a> or <a href="/HM/ShowRegion.cgi?analysis_no=52822&species=human" target="_blank">
+here for NGS (VCF) genotypes</a> to access the sample data directly.</i></p>
+ <p>&nbsp;</p>   
+        <h3><a name="chromosomehomozygosity" id="chromosomehomozygosity"></a>5. Chromosomal homozygosity </h3>
+        <p>After clicking on a chromosome, the view is reduced to this chromosome. In our sample project, you can clearly see a relatively 
+        wide and high homozygosity score and, above this, in the small observed/expected ratio a clear surplus of homozygous genotypes 
+        (only red bars on top of the baseline). You can further zoom into the region by</p>
+        <ol>
+          <li>Left-click on a position left of the homozygous region.</li>
+          <li>Left-click on a position right of the homozygous region.</li>
+          <li>In  box that now opens, click on 'zoom in'.</li>
+          <li>Now it's time to take a look at the underlying genotypes. Click on the first 'genotypes' link in the table below the bar chart.  </li>
+        </ol>
+        <p>&nbsp;</p>
+        <h3><a name="genotypesview" id="genotypesview"></a>6. Genotypes view </h3>
+        <p>In this view, the single genotypes within your selected region are shown as colour-coded boxes. Each column stands for a SNP 
+        (sorted from left to right by its position), each line for a sample. Note that affected individuals are displayed on top and controls 
+        at the bottom, with a small free space between them. A grey box stands for an unknown genotype, blue for heterozygosity and different 
+        shades of red reflect the length of the homozygous strech if a genotype is homozygous. Genotypes homozygous for the minor allele 
+        (based on this study!) have a black diagonal line. A box is drawn around the homozygous region and the limiting markers are displayed below the genotypes. Further below, a link to our candidate gene database, <a href="http://www.genedistiller.org" target="_blank">GeneDistiller</a>, is included. If you want to search for a candidate gene within your region, simply click on <span class="HTML_element">GeneDistiller</span>. If you want to change the region, follow the instructions below. </p>
+        <ol>
+          <li>Left-click on the first SNP left of the homozygous region and select 'start' in the pop-up.</li>
+          <li>Left click on the first SNP right of the homozygous region and select 'end' in the pop-up.</li>
+          <li>Now click on the <span class="HTML_element">GeneDistiller</span> button.</li>
+        </ol>
+        <p>The GeneDistiller start page will now open with your limiting markers filled in as limits. To learn about the functions of GeneDistiller, either play around (it's quite intuitive) or read its <a href="http://www.genedistiller.org/GeneDistiller/manual.html" target="_blank">manual</a>.</p>
+        
+        
+        <p>&nbsp;</p>
+        <h3><a name="delete"></a>7. Remove projects or analysis</h3>
+        <p>Go to the <a href="/HM/SelectDelete.cgi" target="_blank">delete your data</a> page. All proejcts and analyses owned by you will be displayed.</p>
+        <ol>
+          <li>Select an analysis or project you want to delete. </li>
+          <li>Click on the 
+            Delete selected projects and/or analyses button. </li>
+          <li>On the page that now opens, click on the Confirm button. </li>
+        </ol>
+		
+        <h2 style="color: blue">Congratulations!</h2>
+        <p>You have now completed the tutorial. If you want to analyse 'real' genotypes and want to hide them from the world (and make them public when your manuscript has been accepted), you should <a href="/HomozygosityMapper/CreateProfile.html" target="_blank">create a personal account</a>. <br>
+        </p>
+        <p>&nbsp;</p>
+		 <h3><a name="account"></a>8. Create a personal account</h3>
+         <p>Go to the <a href="/HomozygosityMapper/CreateProfile.html" target="_blank">create profile</a> page and enter your name, an e-mail address, your organisation and select your login name and a password. You will be logged in automatically (your browser must accept cookies for this function). If you return to HomozygosityMapper (we hope you will), go to the <a href="/HomozygosityMapper/login.html" target="_blank">login page</a> to create and access your private data. More about the publication and the excahnge of your data can be found in the <a href="documentation.html" target="_blank">documentation</a>. <br>
+         </p>
+     
+         <hr>
+        <p>This tutorial is meant only as a brief introduction to HomozygosityMapper. Please read the <a href="documentation.html" target="_blank">documentation</a> if you are interested in the elements not mentioned here. And if any questions remain unanswered, don't hesitate to ask us (e-mail to dominik.seelow (at) charite.de). We would also appreciate hearing of your experiences, bugs you discovered, and suggestions to improve this application.</p>
+        </td>
+</tr></tbody></table>
+</body>
+</html>

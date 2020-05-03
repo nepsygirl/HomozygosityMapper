@@ -1,0 +1,22 @@
+*Instructions* 
+
+These instructions are not Alohomora's manual. 
+Please read it if you are not familiar with the program. 
+You can download Alohomora for various operating systems here:
+http://gmc.mdc-berlin.de/alohomora/
+
+    * download the zip file
+    * create a folder for your analysis
+    * unzip the zip file into this folder
+    * don't forget create a pedfile in this folder (or copy an existing one)
+    * start Alohomora
+    * set the 'Other' map file to the downloaded *.map file 
+      ('Options' -> 'File selection')
+    * set the 'Other' allele frequencies file to the downloaded *.freq file 
+      ('Options' -> 'File selection')
+    * set the 'Genetic map' to 'Other' (left panel)
+    * set the 'Allele frequencies' to 'Other' (left panel)
+    * select the *.genotypes file as 'Genotypefile' (line below the drop-down menus)
+    * run PedCheck (below the drop-down menus) to remove Mendelian inconsistencies
+    * choose the linkage program of choice ('DataConversion')
+      (and don't forget to choose a recessive 'Genetic Model' [f1: 0, f2: 0, f3: 1])

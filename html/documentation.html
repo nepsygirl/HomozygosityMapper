@@ -1,0 +1,642 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<TITLE>HomozygosityMapper - Documentation</TITLE>
+
+
+<LINK href="css.css" rel="stylesheet" type="text/css">
+<LINK href="doc.css" rel="stylesheet" type="text/css">
+<LINK rel="shortcut icon" href="/HomozygosityMapper/HM_favicon.png" type="image/png">
+<LINK rel="icon" href="/HomozygosityMapper/HM_favicon.png" type="image/png">
+</HEAD>
+<BODY>
+<TABLE align="center" cellspacing="20" width="800">
+	<TBODY>
+		<TR>
+			<TD><IMG src="HM_logo_small.png" alt="HomozgosityMapper pedigree" width="111" height="124" align="left">
+				<H1 align="center"> HomozygosityMapper</H1>
+				<H2 align="center" style="line-height: 25pt; margin:0" class="blue">Documentation</H2>
+				<p style="text-align:center"><A HREF="#faq">FAQs: click here to read the frequently asked questions</A></p></TD>
+		</TR>
+		<TR>
+			<TD  colspan="3"><P><BR>
+					<EM>This software is being further developed. You might occasionally discover new features that haven't yet made it into the manual. We apologise in advance if this causes confusion, but we want to make new features available as soon as possible. </EM></P>
+				<P><EM>HomozygosityMapper has recently been extended to other species beyond humans. While we could import a variety of chips and provide the infrastructure to upload genotypes created with them, we could not test all of them - simple due to the lack ofthe genotypes. If you cannot upload your data or want other species or chips to be included, please send an email to dominik.seelow (at) charite.de. </EM></P></TD>
+		</TR>
+		<TR>
+			<TD class="headingrow"><A name="createprofile"></A>
+				<TABLE width="90%" cellpadding="0">
+					<TR>
+						<TD class="heading">create a profile</TD>
+						<TD class="link"><A href="CreateProfile.html" target="_blank">web interface </A> </TD>
+					</TR>
+				</TABLE></TD>
+		</TR>
+		<TR>
+			<TD><P>
+				You can use HomozygosityMapper without a personal account. However, with a user profile, access to your data will be facilitated
+				and you can also change the access restrictions (only you, everyone, selected co-operation partners) at any time.
+			</P><P>
+					It is not possible to choose a user name that is already in use, HomozygosityMapper will raise an error in such cases. 
+					You should always enter a valid e-mail address because we will inform you in advance when major changes to the website are 
+					planned or when we have to archive old projects due to disk space limitations. <BR>
+					If you forgot your password, please send us an e-mail. Lost passwords will only be sent to the email address entered here. <BR>
+					<BR>
+					After you have created a password, you will be automatically logged in with these data. If you return to HomozygosityMapper, please click on the login link on the homepage and enter your credentials.</P></TD>
+		</TR>
+		<TR>
+			<TD class="headingrow"><A name="select_species"></A>
+				<TABLE width="90%" cellpadding="0">
+					<TR>
+						<TD class="heading">select a species </TD>
+						<TD class="link"></TD>
+					</TR>
+				</TABLE></TD>
+		</TR>
+		<TR>
+			<TD><P>If you want to upload, analyse, or view genotypes of any non-human species or want to switch to another species, 
+			simply click on the correct species in the panel on the left top of the homepage. </P>
+				<P>So far, HomozygosityMapper covers the following species:</P>
+				<TABLE border="0" cellpadding="5">
+					<TR>
+						<TD style="vertical-align: bottom"><IMG src="Human_small.png" alt="Humans" width="99" height="124"></TD>
+						<TD style="vertical-align: bottom"><IMG src="cow/Cow_bw_06.png" alt="Cattle" width="120" height="92"></TD>
+						<TD style="vertical-align: bottom"><IMG src="dog/Pictogram_Dog.png" alt="Humans" width="120" height="120"></TD>
+						<TD style="vertical-align: bottom"><IMG src="horse/Horse_Rider_icon.png" alt="Humans" width="114" height="120"></TD>
+					</TR>
+					<TR>
+						<TD><B><A href="index.html">Humans</A><BR>
+							</B> <I>Homo sapiens <BR>
+							<BR>
+							<BR>
+							</I></TD>
+						<TD><B><A href="/cow/index.html">Cattle</A> <BR>
+							</B> <I>Bos taurus</I></TD>
+						<TD><B><A href="/dog/index.html">Dogs</A><BR>
+							</B> <I>Canis lupus </I></TD>
+						<TD><B><A href="/horse/index.html">Horses</A><BR>
+							</B> <I>Equus ferus caballus</I></TD>
+					</TR>
+					<TR>
+						<TD style="vertical-align: bottom"><IMG src="mouse/Input-mouse.png" alt="Humans" width="120" height="120"></TD>
+						<TD style="vertical-align: bottom"><IMG src="rat/rat.jpg" alt="Humans" width="120" height="109"></TD>
+						<TD style="vertical-align: bottom"><IMG src="sheep/Sheep_in_gray.png" alt="Humans" width="110" height="119"></TD>
+						<TD style="vertical-align: bottom">&nbsp;</TD>
+					</TR>
+					<TR>
+						<TD><B><A href="index.html">Mice</A> <BR>
+							</B> <I>Mus musculus</I></TD>
+						<TD><B><A href="index.html">Rats</A><BR>
+							</B> <I>Rattus norvegicus </I></TD>
+						<TD><B><A href="index.html">Sheep</A><BR>
+							</B> <I>Ovis aries </I></TD>
+					</TR>
+				</TABLE>
+				<SMALL><BR>
+				Please see <A href="#contributions">contributions</A> for copy rights.</SMALL></TD>
+		</TR>
+		<TR>
+			<TD></TD>
+		</TR>
+		<TR>
+			<TD class="headingrow"><A name="uploadgenotypes"></A>
+				<TABLE width="90%" cellpadding="0">
+					<TR>
+						<TD class="heading">upload genotypes&nbsp;</TD>
+						<TD class="link"><A href="/HM/UploadSettings.cgi">web interface </A> </TD>
+					</TR>
+				</TABLE></TD>
+		</TR>
+		<TR>
+			<TD>Genotypes from <A href="#uploadgenotypes_vcf">VCF files</A> and the following chips can be imported: <BR>
+				<TABLE border="0" cellspacing="10">
+					<TR>
+						<TD><B>Humans</B>
+							<UL>
+								<LI>Affymetrix 10K Xba142</LI>
+								<LI>Affymetrix 50K Hind240</LI>
+								<LI>Affymetrix 50K Xba240</LI>
+								<LI>Affymetrix 250K_Nsp</LI>
+								<LI>Affymetrix 250K_Sty</LI>
+								<LI>Affymetrix GenomeWideSNP5</LI>
+								<LI>Affymetrix GenomeWideSNP6</LI>
+								<LI>Affymetrix Axiom Hu (CEU)</LI>
+								<LI>Affymetrix Axiom ASI</LI>
+								<LI>Illumina HumanOmni1-Quad</LI>
+								<LI>Illumina HumanOmni1S</LI>
+								<LI>Illumina HumanOmni2.5</LI>
+								<LI>Illumina (all SNP chips with dbSNP ID)</LI>
+							</UL></TD>
+						<TD><B>Cattle</B>
+							<UL>
+								<LI>Affymetrix Bovine 25KPanel</LI>
+								<LI>Affymetrix TG Bovine 10KPanel</LI>
+								<LI>Illumina BovineSNP50</LI>
+							</UL>
+							<B>Dogs </B>
+							<UL>
+								<LI> Affymetrix V1 platinum </LI>
+								<LI>Affymetrix V2 platinum </LI>
+								<LI>Affymetrix V2 full </LI>
+							</UL>
+							<B>Horses</B>
+							<UL>
+								<LI> Illumina EquineSNP50</LI>
+							</UL></TD>
+						<TD><B>Mice</B>
+							<UL>
+								<LI> Affymetrix Mouse diversity </LI>
+								<LI> Affymetrix: TG Mouse 5KPanel </LI>
+							</UL>
+							<B>Rats</B>
+							<UL>
+								<LI> Affymetrix Rat Mapping 10K</LI>
+								<LI>Affymetrix Rat Mapping 5K</LI>
+							</UL>
+							<B>Sheep</B>
+							<UL>
+								<LI> Illumina OvineSNP50</LI>
+							</UL></TD>
+					</TR>
+					<TR>
+						<TD colspan="3"><SMALL><B>If your specied or chip is not listed here, please send us an e-mail. </B></SMALL></TD>
+					</TR>
+				</TABLE>
+				<P>To import the genotypes, specify a new project name under <SPAN class="HTML_element">new project name</SPAN> or select 
+				one of your existing projects (<SPAN class="HTML_element">add to existing project</SPAN>) if you want to add new genotypes. 
+				Adding genotypes to an existing project is also the solution for projects run on chip sets consisting of more than one chip 
+				(see 'mixing' below). </P>
+				<P>
+				You can also decide whether or not you want to make the project public (checkbox <SPAN class="HTML_element">access restriction</SPAN>).<BR>
+				If you are logged in with a personal account, this setting can be changed at any time and you can also share your data with selected
+				collaborators (via the 'grant access to your data' link on the homepage). If you upload your data as guest, you will receive special 
+				URLs for access-restricted data; the data will be invisible to anyone else. Without the URL, you will not be able to access your data again.
+				Also, it is not possible to use URL-protected genotypes in GeneDistiller to rank candidate genes by their homozyosity scores.<BR>
+				Please note that data uploaded as guest will be deleted after two month to save disk space.
+				We hence recommend to <A href="http://www.homozygositymapper.org/CreateProfile.html">create an account</A>, especially if you want to 
+				keep your data private. Personal accounts are completely free.
+				
+				</P>
+				<P>After choosing the project, you have to select the respective genotyping chip or 'VCF' (drop-down menu <SPAN class="HTML_element">chip</SPAN>),  point to the genotype file (<SPAN class="HTML_element">genotype file</SPAN>) and eventually submit the data.</P>
+				<P><B>SNP genotype files</B> must be tabular with the samples as columns and the SNPs as rows, they can (or rather should) also be zipped or gzipped. Lines starting with the number sign (#) will be ignored. Sample files to demonstrate the allowed formats can be found <A href="sample_files.html">here</A>. The genotypes must be written in standard Affymetrix or Illumina notation, i.e. (<I>NoCall</I>, <I>AA</I>, <I>AB</I>, <I>BB</I> or <I>-1</I>,<I> 0</I>,<I> 1</I>,<I> 2</I> for Affymetrix and <I>--</I>, <I>AA</I>, <I>AB</I>, <I>BB</I> for Illumina, respectively).				</P>
+				<A name="uploadgenotypes_vcf"></A>
+				<P><B>VCF genotype files </B>must combine the genotypes of all samples in one file (see <A href="#add_vcf">below</A>). A short description and a <A href="VCF_Sample_File.zip">sample VCF file</A> 
+				can be obtained from the <A href="sample_files.html" target="_blank">file formats</A> page.<BR>
+				You can choose whether you want to consider either all variations from the RefSeq (<SPAN class="HTML_element">use...</SPAN> only variations from RefSeq)
+				in your file or all positions known to bear SNPs (<SPAN class="HTML_element">use...</SPAN> only known variants) or both.
+				<br>If you work with a project containing control samples (i.e. healthy relatives), using only the real variations (only variations from RefSeq) 
+				is recommended as this option is faster than the inclusion of millions of known SNPs. If your study does not inlcude any healthy relatives, you should
+				choose one of the other options to ensure that you do not miss any stretches of homozygosity which contain mostly
+				RefSeq alleles. Please note that, depending on the generation of the file, your VCF file may only contain variations from the RefSeq. In these cases, setting 
+				<SPAN class="HTML_element">use...</SPAN> to 'only known variants' will only include genotypes that show a variation from the RefSeq <i>and</i> are known SNP locations.
+				<br>
+				You can also set a coverage threshold (<SPAN class="HTML_element">minimum coverage</SPAN>). Genotypes with a coverage 
+				below this value will be treated as no calls. Please note that the <span class="code">DP</span> flag <b>must</b> be included 
+				in the <b><span class="code">FORMAT</span> string</b> (not only in <span class="code">INFO</span>!), unless you set the minimum coverage 
+				value in the upload 	interface to 0. Without the DP flag in <span class="code">FORMAT</span> it is impossible to exclude 
+				
+				genotypes with a low coverage because the DP information in <span class="code">INFO</span> aggegrates the coverage over all samples!<BR><br>
+				<A NAME="add_vcf"></A>It is <b>not possible to add VCF files to a project</b>. The reason is that VCF files usually only
+				include variants from the RefSeq. A second file will most likely include 'novel' positions - but there is no possible way
+				for HomozgosityMapper to decide about the genotype in the first file. It <i>might</i> be homozgyous for the RefSeq allele
+				but it could also be any other genotype with a poor coverage.<br>
+				If you want to combine different VCF files, you should hence create a joint file from the original BAM files. Using samtools,
+				this can be achieved by<pre>
+# all BAM files in the same directory
+samtools mpileup -D -gf /path/to/genome.fa *.bam | bcftools view -c -g - > filename.vcf
+# BAM files in different directories 
+samtools mpileup -D -gf /path/to/genome.fa /path/to/bam1.bam /path/to/bam2.bam | bcftools view -c -g - > filename.vcf
+# reference genome: /path/to/genome.fa
+# output file: filename.vcf</pre>
+
+				Please read the <A HREF="http://samtools.sourceforge.net/samtools.shtml">manuals of SAMtools / bcftools</A> to find the appropriate settings for your data.<br>
+				GATK offers a similar option.<br>
+				 
+				
+				 </P><hr>
+				<P>The data import may take seconds or even half an hour, depending on the size of the file, the upload speed and the working load of our server.</P>
+				<P>When the upload has been finished, you can proceed to the next step.</P>
+				<P><I>Mixing of arrays</I> with different markers per sample is possible. However, HomozygosityMapper only considers markers that 
+				were genotyped for a sample. That means, that if you mix different arrays you will automatically obtain lower homozygosity scores 
+				for samples with fewer genotypes.<BR>
+			We believe that any other solution (using block length in megabases instead of SNP numbers, treating non-typed markers as unknown 
+			genotypes, or use only markers available in all samples) would merely complicate the application and make it less performant in more 
+			realistic scenarios. If, however, you are in such a situation, please drop us an e-mail. At attempt to solve this might be worthwile, 
+			challenging and exciting... :-) </P></TD>
+		</TR>
+		<TR>
+			<TD class="headingrow"><A name="analysis"></A>
+				<TABLE width="90%" cellpadding="0">
+					<TR>
+						<TD class="heading">analyse your data&nbsp;</TD>
+						<TD class="link"><A href="/HM/AnalysisSettings.cgi">web interface</A> </TD>
+					</TR>
+				</TABLE></TD>
+		</TR>
+		<TR>
+			<TD><P>After the genotypes were imported, you can start the homozygosity mapping. First, you must select the project you want to analyse (drop-down menu <SPAN class="HTML_element">project</SPAN>) and provide a new for the analysis (<SPAN class="HTML_element">analysis name</SPAN>). You can specify further details under <SPAN class="HTML_element">analysis descriptio</SPAN>n which will be displayed together with the analyses' names to indicate specific models etc. which might be too complex to include them in the name. </P>
+				<P>Under <SPAN class="HTML_element">cases</SPAN> and <SPAN class="HTML_element">controls</SPAN>, you can specify the samples that should be regarded as cases or controls, respectively. Cases are, of course, obligatory.  Please note that sample IDs must be written exactly as in the genotype file; HomozygosityMapper will, however, complain, if it cannot find a sample.</P>
+				<P>If your cases are from a single family or if you are absolutely sure that there is no genetic heterogeneity among the samples you plan to analyse as cases, you can tick the require <SPAN class="HTML_element">genetic homogeneity box</SPAN>. In this case, homozygosity in all case samples is required for a region to be included. The new release extends this feature: The case samples must share the same homozygous genotype. In the text field <SPAN class="HTML_element">exclude homozygous stretches in controls &gt;=</SPAN> below, you can define a threshold for the length of homozygous blocks in controls. Whenever these exceed this value, the region will be excluded. The suggested values (printed next to the input field) are relatively high to reduce the risk of false negatives. </P>
+				<P>If you are interested in the excess of homozygous over heterozygous genotypes, you can change the <SPAN class="HTML_element">allele frequencies</SPAN> drop-down menu to compare homozygosity in affected indivuals with homozygosity in your controls or one of the four HapMap populations. These frequencies are only plotted in the graphical output and will not affect the analysis in any way, though.</P>
+				<P>Another parameter to be set is the maximum block length (<SPAN class="HTML_element">limit block length</SPAN>). If this field is left empty, a default setting for the set of markers will be used. If you don't want to limit the block length, specify a negative value. While the default settings are suitable for most analyses, after a visual inspection of the results you may decide to re-analyse your data according to the degree of homozygous blocks in your data. A small value might be appropriate if you want to find a founder mutation in a very large sample consisting of individuals from non-related families. Default values are:</P>
+				<PRE>number of SNPs    block length limit 
+    &gt; 800000         1000
+    &gt; 400000          500
+    &gt; 200000          250
+    &gt;  45000           80
+    &gt;      0           15  	
+</PRE>
+				<P><SPAN class="HTML_element">Only count blocks longer than x </SPAN>. This parameter is an experimental way to fine-tune 
+					the block length settings. This is a lower limit of the block length; i.e. only homozygous stretches longer than <I>n</I> bases 
+					are be included in the score. This switch is helpful when you expect a large degree of genetic heterozygosity and hence
+					only a small proportion of cases to be homozygous at the same location. This might be the case if you study many single cases 
+					from consanguineous families which might not share the same disaese locus.</P>
+				<P>The analysis might take several minutes to complete. </P>
+					<p>The analysis is described in more detail <A href="technical_documentation.html#data_analysis">here</A>.</p></TD>
+		</TR>
+		<TR>
+			<TD class="headingrow"><A name="query"></A>
+				<TABLE width="90%" cellpadding="0">
+					<TR>
+						<TD class="heading">query genotypes &nbsp;</TD>
+						<TD class="link"><A href="/HM/ChooseProject.cgi">web interface </A> </TD>
+					</TR>
+				</TABLE></TD>
+		</TR>
+		<TR>
+			<TD><P>This interface allows you to select one of your own analyses (coloured blue) to inspect homozygosity scores and genotypes. In addition, analyses of other researchers made public (green) or accessible for you (black) will be listed. 
+			Analyses are ordered by project name and analysis name. Your own analyses appear on top of the list.</P>
+				<P>Simply click on the correct analysis to inspect genome-wide homozygosity. </P>
+				<P>If you are interested in the homozygosity around some candidate genes, use the GeneDistiller link on the right of each
+				item. Please note that GeneDistiller is be opened without any further information and will complain unless you enter your
+				candidate genes or a genomic region of interest.</P></TD>
+		</TR>
+		<TR>
+			<TD class="headingrow"><A name="scoreview"></A>
+				<TABLE width="90%" cellpadding="0">
+					<TR>
+						<TD class="heading">homozygosity score view </TD>
+						<TD class="link"></TD>
+					</TR>
+				</TABLE></TD>
+		</TR>
+		<TR>
+			<TD><P>Here, the homozygosity scores are plotted against the physical position. 
+						The interface can either display the whole genome, a single chromosome or a 
+						selected region on a single chromosome. Interesting regions are indicated by red 
+						bars. <BR>
+					Above the bar chart, small red and blue bars are shown. These represent the 
+					excess (red) or the shortage (blue) of the found homozygosity against the 
+					expectation calculated from controls or population values as selected when 
+					the data was analysed. 
+					This view becomes more interesting when 'sporadic cases' with a suspected 
+					inbreeding background but without close consanguinity and hence
+					very short homozygous stretches are studied. Here, the allele frequencies 
+					in healthy controls might be helpful to decide whether or not 
+					such a region is interesting. <BR>
+					Below the bar chart, all scores above 80% of the maximum are listed (sorted by their score) and 
+					direct links to these regions are provided. On top of this table, 'broad' regions are displayed - 
+					in these, smaller decreases of the score within a homozygous region are neglected. At the bottom 
+					of the table, 'narrow' regions with sharp limits follow. If you expect some degree of heterozygosity, 
+					you should consider the 'broad' regions. </P>
+					<P>Below the scores, two links to GeneDistiller are shown, either for the broad or the narrow regions.</P>
+					Below the regions, links to GeneDistiller 
+					and export options are displayed:<BR>
+					<UL>
+					<LI>With <A href="http://www.genedistiller.org/index.html" target="_blank">GeneDistiller</A>, 
+					candidate genes in all long homozygous regions can be queried at once.</LI>
+					<LI>It is also possible to generate files to perform a fine-mapping 
+					of the potential disease regions via 
+					<A href="http://gmc.mdc-berlin.de/alohomora/" target="_blank">Alohomora</A>. 
+					A short manual is provided after the export.</LI>
+					<LI>For the enrichment needed for 
+					deep sequencing approaches, HomozygosityMapper can produce *.bed files 
+					containing either all regions or the complete genes/only the exons contained 
+					within them. </LI></UL>
+				<H3>genome-wide homozygosity</H3>
+				<IMG src="doc/genomewide_homozygosity.png" alt="genome-wide homozygosity" width="505" height="523">
+				<P>In the whole genome view, clicking on a chromosome  will zoom on this chromosome.</P>
+				<H3>chromosomal homozygosity </H3>
+				<P>After clicking on a chromosome, the view zooms into this chromosome. Now only the interesting 
+				regions located within the selected region (here: the chromosome) will be displayes as links. </P>
+				<P><IMG src="doc/chromosomal_homozygosity.png" alt="chromosomal homozygosity" width="505" height="523"></P>
+				<H3>chomosomal homozygosity - zoom in</H3>
+				<P>After clicking on the edges of the region the user want to study in details, a pop-up will appear and offer 
+				links to further zoom in or to see the underlying genotypes.</P>
+				<P><IMG src="doc/chromosomal_homozygosity_zoom_in.png" alt="chomosomal homozygosity - zoom in" width="505" height="523"></P></TD>
+		</TR>
+		<TR>
+			<TD class="headingrow"><A name="genotypesview"></A>
+				<TABLE width="90%" cellpadding="0">
+					<TR>
+						<TD class="heading">genotypes view </TD>
+						<TD class="link"></TD>
+					</TR>
+				</TABLE></TD>
+		</TR>
+		<TR>
+			<TD><P>The genotype view depicts the single genotypes of all samples marked as cases or controls. The genotypes are indicated as coloured boxes; where blue codes for heterozygous, grey for unknown and red for homozygous genotypes. Different shades of red are used,  longer homozygous stretches will be drawn in a 'deeper' red than single homozygous markers. Genotypes homozygous for the minor allele are marked with a black diagonal bar. </P>
+				<P>The homozygous region found by HomozygosityMapper is shown as a  rectangle, it's limits can be shifted to other markers by clicking on these.</P>
+				<P>After the region has been defined, you can go ahead by clicking on the <SPAN class="HTML_element">GeneDistiller</SPAN> button to find candidate genes (see below) within the region. </P></TD>
+		</TR>
+		<TR>
+			<TD class="headingrow"><A name="genedistiller"></A>
+				<TABLE width="90%" cellpadding="0">
+					<TR>
+						<TD class="heading">finding a candidate gene</TD>
+						<TD class="link"></TD>
+					</TR>
+				</TABLE></TD>
+		</TR>
+		<TR>
+			<TD><P>HomozygosityMapper integrates with <A href="http://www.genedistiller.org">GeneDistiller</A>. When clicking the <SPAN class="HTML_element">GeneDistiller</SPAN> button, GeneDistiller's query interface will open with the correct region filled in. Clicking on <SPAN class="HTML_element">submit</SPAN> in this interface will list all genes within the region; for a description how GeneDistiller can be used to focus on genes of interest take a look at it's manual:<BR>
+					<A href="http://www.genedistiller.org/info/">http://www.genedistiller.org/manual.html</A></P>
+				<P>When
+					GeneDistiller is queried from HomozygosityMapper, each gene will carry another link, 'HomozygosityMapper', which will open the genotypes view and indicate the position of the selected genes within the genotypes. Bookmarking GeneDistiller's settings (on the bottom of it's results list) will maintain the hyperlinks to the respective homozygosity mapping. </P></TD>
+		</TR>
+		<TR>
+			<TD class="headingrow"><A name="grantaccess" id="grantaccess"></A>
+				<TABLE width="90%" cellpadding="0">
+					<TR>
+						<TD class="heading">grant access to your data </TD>
+						<TD class="link"><A href="/HM/SelectPermissions.cgi">web interface</A></TD>
+					</TR>
+				</TABLE></TD>
+		</TR>
+		<TR>
+			<TD><P>You can use this interface to fine-tune access to your data. It will display a table with all of your projects as rows and all user logins as columns. For each user and project, you can select whether he or she shall be allowed to query your data. You can further grant the right to perform new analyses on your data to collaborators (the project and the analyses will remain under your control though). At the end of each row, you have the option to grant (or revoke) query permissions to the public. </P>
+				<P>Click on <SPAN class="HTML_element">SetPermissions</SPAN> when you're done. </P></TD>
+		</TR>
+		<TR>
+			<TD class="headingrow"><A name="deletedata" id="deletedata"></A>
+				<TABLE width="90%" cellpadding="0">
+					<TR>
+						<TD class="heading">delete your data </TD>
+						<TD class="link"><A href="/HM/SelectDelete.cgi">web interface</A></TD>
+					</TR>
+				</TABLE></TD>
+		</TR>
+		<TR>
+			<TD><P>Use this interface to delete single analyses within a project or complete projects.</P>
+				<P>All of your projects and analyses will be listed. Checking a project/analysis will mark it for deletion; if you delete a project, all analyses performed with that dataset will be deleted as well.</P>
+				<P>Please note that deleted data will be lost forever.</P></TD>
+		</TR>
+		<TR>
+			<TD class="headingrow"><TABLE width="90%" cellpadding="0">
+					<TR>
+						<TD class="heading">implementation / technical details&nbsp;</TD>
+						<TD class="link"><A href="technical_documentation.html">technical documentation</A> </TD>
+					</TR>
+				</TABLE></TD>
+		</TR>
+		<TR>
+			<TD><P>HomozygosityMapper is based on a PostgreSQL database, all interfaces were written in Perl. The database schema and further details can be found in the <A href="technical_documentation.html">technical documentation</A>. </P>
+				<P>The application was developed using various flavours of Mozilla Firefox. It was further tested with Microsoft Internet Explorer 7 and should work </P></TD>
+		</TR>
+		<TR>
+			<TD class="headingrow"><TABLE width="90%" cellpadding="0">
+					<TR>
+						<TD class="heading"><A name="benchmarks"></A>benchmarks&nbsp;</TD>
+						<TD>&nbsp;</TD>
+					</TR>
+				</TABLE></TD>
+		</TR>
+		<TR>
+			<TD>We include some benchmarks to demonstrate the speed of HomozygosityMapper. Two examples were uploaded and analysed twice under normal usage of the webserver and the RDBMS. Please keep in mind that a heavy load on the server and especially a slow network connection may decrease the application's speed significantly.<BR>
+				<BR>
+				<TABLE border="0" cellpadding="3" width="100%">
+					<TR>
+						<TD><STRONG>example</STRONG></TD>
+						<TD><STRONG>array</STRONG></TD>
+						<TD><DIV align="right"><STRONG>number <BR>
+								of SNPs* </STRONG></DIV></TD>
+						<TD>&nbsp;</TD>
+						<TD>&nbsp;</TD>
+						<TD><STRONG>time <BR>
+							(min:s)</STRONG></TD>
+						<TD><STRONG>+/-<BR>
+							(min:s) </STRONG></TD>
+					</TR>
+					<TR>
+						<TD><A href="/HM/ShowRegion.cgi?analysis_no=85">tutorial genotypes </A></TD>
+						<TD>Affymetrix 50K <BR>
+							Hind 240 </TD>
+						<TD><DIV align="right">56,936</DIV></TD>
+						<TD>&nbsp;</TD>
+						<TD>8 samples, <BR>
+							5 as cases,<BR>
+							3 as controls </TD>
+						<TD>&nbsp;</TD>
+						<TD>&nbsp;</TD>
+					</TR>
+					<TR>
+						<TD>&nbsp;</TD>
+						<TD>&nbsp;</TD>
+						<TD><DIV align="right"></DIV></TD>
+						<TD>&nbsp;</TD>
+						<TD><EM>upload &amp; homozygosity detection </EM></TD>
+						<TD><DIV align="right">2:15</DIV></TD>
+						<TD><DIV align="right">0:05</DIV></TD>
+					</TR>
+					<TR>
+						<TD>&nbsp;</TD>
+						<TD>&nbsp;</TD>
+						<TD><DIV align="right"></DIV></TD>
+						<TD>&nbsp;</TD>
+						<TD><EM>analysis</EM></TD>
+						<TD><DIV align="right">0:32</DIV></TD>
+						<TD><DIV align="right">0:03</DIV></TD>
+					</TR>
+					<TR>
+						<TD>&nbsp;</TD>
+						<TD>&nbsp;</TD>
+						<TD><DIV align="right"></DIV></TD>
+						<TD>&nbsp;</TD>
+						<TD><EM>display of genome-wide homozygosity</EM></TD>
+						<TD><DIV align="right">0:03</DIV></TD>
+						<TD><DIV align="right">0:01</DIV></TD>
+					</TR>
+					<TR>
+						<TD><A href="/HM/ShowRegion.cgi?analysis_no=251" target="_blank">SNP6 genotypes with <BR>
+							simulated homozygosity</A> </TD>
+						<TD>Affymetrix SNP6 </TD>
+						<TD><DIV align="right">929,509</DIV></TD>
+						<TD>&nbsp;</TD>
+						<TD>6 samples, <BR>
+							5 as cases, <BR>
+							0 as controls</TD>
+						<TD><DIV align="right"></DIV></TD>
+						<TD><DIV align="right"></DIV></TD>
+					</TR>
+					<TR>
+						<TD>&nbsp;</TD>
+						<TD>&nbsp;</TD>
+						<TD>&nbsp;</TD>
+						<TD >&nbsp;</TD>
+						<TD ><EM>upload &amp; homozygosity detection </EM></TD>
+						<TD><DIV align="right">18:30</DIV></TD>
+						<TD><DIV align="right">0:35</DIV></TD>
+					</TR>
+					<TR>
+						<TD>&nbsp;</TD>
+						<TD>&nbsp;</TD>
+						<TD>&nbsp;</TD>
+						<TD >&nbsp;</TD>
+						<TD ><EM>analysis</EM></TD>
+						<TD><DIV align="right">4:50</DIV></TD>
+						<TD><DIV align="right">0:03</DIV></TD>
+					</TR>
+					<TR>
+						<TD>&nbsp;</TD>
+						<TD>&nbsp;</TD>
+						<TD>&nbsp;</TD>
+						<TD>&nbsp;</TD>
+						<TD><EM>display of genome-wide homozygosity</EM></TD>
+						<TD><DIV align="right">0:22</DIV></TD>
+						<TD><DIV align="right">0:04</DIV></TD>
+					</TR>
+				</TABLE>
+				<SMALL>*number of SNPs: SNPs used by HomozygosityMapper; redundant or non-autosomal SNPs are not included.</SMALL> </TD>
+		</TR>
+		<TR>
+			<TD class="headingrow"><TABLE width="90%" cellpadding="0">
+					<TR>
+						<TD class="heading">stand-alone version&nbsp;</TD>
+						<TD class="link"></TD>
+					</TR>
+				</TABLE></TD>
+		</TR>
+		<TR>
+			<TD><P>In addition to the web-based version, a stand-alone application exists. This program does not make use of a database and interfaces were created with Perl/Tk. While it offers speed gains for small chips (up to 50,000 SNPs), the performance decreases with the number of markers being studied. This version is not supported anymore but we will gladly share the source code. Please send us an e-mail if you are interested. </P></TD>
+		</TR>
+		<TR>
+			<TD class="headingrow"><TABLE width="90%" cellpadding="0">
+					<TR>
+						<TD class="heading">cite HomozygosityMapper&nbsp;</TD>
+						<TD class="link"></TD>
+					</TR>
+				</TABLE></TD>
+		</TR>
+		<TR>
+			<TD><A href="http://www.ncbi.nlm.nih.gov/pubmed/19465395" target="_blank">HomozygosityMapper--an interactive approach to homozygosity mapping.</A><BR>
+				Seelow D, Schuelke M, Hildebrandt F, N&uuml;rnberg P.<BR>
+				<I>Nucleic Acids Res.</I> 2009 May 21. </TD>
+		</TR>
+		<TR>
+			<TD class="headingrow"><TABLE width="90%" cellpadding="0">
+					<TR>
+						<TD class="heading">team</TD>
+						<TD class="link"></TD>
+					</TR>
+				</TABLE></TD>
+		</TR>
+		<TR>
+			<TD><TABLE cellpadding="5">
+					<TR>
+						<TD>Dominik Seelow</TD>
+						<TD><I><SPAN style="border: 1px; text-align: left">NeuroCure Clinical Research Centre</SPAN>, Charit&eacute;, Berlin, FRG </I></TD>
+					</TR>
+					<TR>
+						<TD>Markus Schuelke</TD>
+						<TD><I><SPAN style="border: 1px; text-align: left">NeuroCure Clinical Research Centre</SPAN>, Charit&eacute;, Berlin, FRG</I></TD>
+					</TR>
+			</TABLE></TD>
+		</TR>
+		<TR>
+			<TD class="headingrow"><TABLE width="90%" cellpadding="0">
+					<TR>
+						<TD class="heading">contact</TD>
+						<TD class="link"></TD>
+					</TR>
+				</TABLE></TD>
+		</TR>
+		<TR>
+			<TD><TABLE width="100%" border="0" cellpadding="5">
+					<TR>
+						<TD rowspan="4" style="border: 1px; text-align: left"><STRONG>snail mail</STRONG><BR>
+							Dominik Seelow<BR>
+							NeuroCure Clinical Research Centre<BR>
+							Charit&eacute; - Universit&auml;tsmedizin Berlin <BR>
+							Dorotheenstr. 96<BR>
+							D-10117 Berlin<BR>
+							Federal Republic of Germany<BR></TD>
+						<TD class="bold">e-mail</TD>
+						<TD>dominik.seelow(at)charite.de</TD>
+					</TR>
+					<TR>
+						<TD class="bold">phone</TD>
+						<TD>+49 30 450539096</TD>
+					</TR>
+					<TR>
+						<TD class="bold">fax</TD>
+						<TD>+49 30 450566920 </TD>
+					</TR>
+					<TR>
+						<TD>&nbsp;</TD>
+						<TD>&nbsp;</TD>
+					</TR>
+				</TABLE>
+				<P>If you are unsure which medium best suits your contact needs: E-Mails are preferred. :-) </P></TD>
+		</TR>
+		<TR>
+			<TD class="headingrow"><A name="faq"></A>
+				<TABLE width="90%" cellpadding="0">
+					<TR>
+						<TD class="heading">FAQs</TD>
+						<TD class="link"></TD>
+					</TR>
+				</TABLE></TD>
+		</TR>
+		<TR>
+			<TD><P><SPAN class="bold">Why can't I  further zoom in on a single chromosome? Why can't I change the limits of a homozygous region?</SPAN><BR>
+					Sounds as if JavaScript was not enabled. With Mozilla Firefox, select Tools -&gt; Options -&gt; Content and check the 'Enable JavaScript' button. </P>
+				<P><SPAN class="bold">I forgot my login and/or my password. What can I do?</SPAN><BR>
+					Please send an e-mail to dominik.seelow(at)charite.de.</P>
+				<P><SPAN class="bold">I am using a chip that is not listed, how can I upload my genotypes?</SPAN><BR>
+					So far, HomozygosityMapper only supports the most common chips manufactured by Affymetrix and Illumina. If you want to import genotypes derived by other chips (or means), you can either bring your genotype file in the  format as used by Affymetrix or Illumina and select a chip containing all your markers or write us an e-mail. The integration of completely new chips and file formats might take some time, though. </P>
+				<P><SPAN class="bold">I made a terrible mistake and deleted my project. Is there any way to restore it?</SPAN><BR>
+					Well, yes, at least there might be one. If you are lucky, the data is included in one of our backups. Please write an e-mail to us and specify the exact name of the project. We will then see what we can do. </P>
+				<P><SPAN class="bold">Is the data within HomozygosityMapper stored forever?</SPAN><BR>
+					Hm. Certainly not forever but at least we do not plan to include an automatic time-out after which your data will be deleted. We might, for disk space reasons, decide to archive 'old projects'. However, we will inform the respective project's owners in advance.</P>
+				<P><SPAN class="bold">I have created an account but I cannot log in. Why?</SPAN><BR>
+					Please ensure that you allowed this site to set cookies in your browser. This is the default setting in all current browsers - if you deactivated cookies you could change the setting to 'ask' instead of 'block' or add an exception for this website.</P>
+				<P><SPAN class="bold">Why can't I add another VCF file to an existing project?</SPAN><BR>
+					Please read the <A HREF="#add_vcf">section about data upload</A>.</P>
+					
+				<P><SPAN class="bold">How is this homozgyosity score calculated?</SPAN><BR>	
+					HM calculates the length of the homozygous block (in SNPs) at each marker for each sample. 
+					The values of the 'cases' are then added to get the 'homozygosity score' for a marker. 
+					It is, however, actually a bit more complex: The maximum length for each block (that will be 
+					added to the final score) is per default set to some limits (depending on the SNP array - 
+					or user-defined with 'limit block length') to reduce the effect of very long blocks in one or few samples. 
+					That means, that a very long block (say 5000 SNPs) is 'reduced' to the 'limit block length' 
+					setting (say 500 SNPs).<br>
+					For case-control studies or 'distant consanguinity', only blocks longer than a user-defined 
+					value 'only count blocks longer than' are regarded to reduce the influence of non-informative segments.<br>
+					And, of course, in the case of 'genetic homogeneity', regions are excluded 
+					when the same homozygous haplotype is found in any controls.<br>
+					The analysis is described in more detail in the <A href="technical_documentation.html#data_analysis">technical documentation</A>.</P></TD>
+		</TR><TR>
+			<TD class="headingrow"><A name="contributions"></A>
+				<TABLE width="90%" cellpadding="0">
+					<TR>
+						<TD class="heading">Contributions</TD>
+						<TD class="link"></TD>
+					</TR>
+				</TABLE></TD>
+		</TR>
+		<TR>
+			<TD><SPAN class="bold">Species pictures </SPAN>  <BR>
+				cow: <A href="http://commons.wikimedia.org/wiki/User:LadyofHats" >LadyofHats</A> <BR>
+				dog: <A href="http://commons.wikimedia.org/wiki/User:Mathieu19">Mathieu19</A><BR>
+				humans: <A href="http://www.nasa.gov/centers/ames/missions/archive/pioneer.html">L. Salzman Sagan, C. Sagan, F. Drake / NASA</A>  <BR>
+				horse: <A href="http://commons.wikimedia.org/wiki/User:Wilfredor">Wilfredor</A> <BR>
+					mouse: The <A href="http://tango.freedesktop.org/Tango_Desktop_Project">Tango! Desktop Project</A> <BR>
+					rat: <A href="http://mkweb.bcgsc.ca/rat/images/raton3700/">Martin Krzywinsk</A> <BR>
+			sheep: <A href="http://commons.wikimedia.org/wiki/File:Sheep_in_gray.svg">Micha&#322; Pecyna</A></TD>
+		</TR>
+	</TBODY>
+</TABLE>
+</BODY>
+</HTML>

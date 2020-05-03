@@ -1,0 +1,10 @@
+# Alle Robots ausschlie�en
+User-agent: *
+Disallow: /temp/
+Disallow: /cgi-bin/
+Disallow: /HM/
+Disallow: /GD/
+
+
+
+

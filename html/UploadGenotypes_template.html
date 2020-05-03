@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>HomozygosityMapper - upload genotypes</title>
+<link href="/HomozygosityMapper/css.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="/HomozygosityMapper/HM_favicon.png" type="image/png">
+<link rel="icon" href="/HomozygosityMapper/HM_favicon.png" type="image/png">
+<style type="text/css">
+<!--
+td {
+	font-size: 12pt !important;
+	font-weight: bolder;
+	vertical-align: top !important;
+}
+small {
+	font-size: 9pt !important;
+	font-weight: normal;
+	vertical-align: top !important;
+}
+
+-->
+</style>
+<script type="text/javascript">
+function ShowAvailableProjects() {
+	var req;
+	try {
+		req = window.XMLHttpRequest?new XMLHttpRequest():
+		new ActiveXObject("Microsoft.XMLHTTP");
+	} 
+	catch (e) {
+		//Kein AJAX Support
+	}
+ 	req.onreadystatechange = function() {
+		if ((req.readyState == 4) && (req.status == 200)) {
+			document.getElementById('feedback').innerHTML = req.responseText;
+		}
+	};
+	req.open('post', '/HM/ChooseProject.cgi?', true);
+	req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	req.send("via_ajax=1&species=<TMPL_VAR NAME=species>");
+
+	return true;
+}
+
+</script>
+</head>
+
+<body onLoad="ShowAvailableProjects()">
+<form action="/HM/UploadGenotypes.cgi" method="post" enctype="multipart/form-data">
+
+<input type="hidden" name="species" value="<TMPL_VAR NAME=species>">
+  <table align="center" cellspacing="12">
+ <tr>
+      <td colspan="3">
+      
+
+			<TABLE border="0" cellpadding="0" cellspacing="0">
+				<TR>
+					<TD width="120">
+					<A HREF="/HomozygosityMapper/index.html">
+						<IMG src="/HomozygosityMapper/HM_logo_small.png" alt="HomozgosityMapper pedigree" width="111" height="124" align="left" style="border: 0pt none;">
+					</A>
+					</TD>
+					<TD width="460">
+						<H1 align="center">HomozygosityMapper</H1>
+						<H4 align="center" style="line-height: 35pt; margin:0">
+							<i><TMPL_VAR NAME=species_latin_name></i></H4>
+						<H2 align="center" style="line-height: 15pt; margin:0" class="blue">Upload genotypes</H2>
+					</TD>
+					<TD width="120" style="vertical-align:middle">
+					<A HREF="/HomozygosityMapper/<TMPL_VAR NAME=species>">
+						<IMG src="/HomozygosityMapper/<TMPL_VAR NAME=icon>" alt='<TMPL_VAR NAME=icon_desc>' align="right" style="border: 0pt none;">
+					</A>						
+					</TD>
+				</TR>
+			</TABLE>
+  </td>
+    </tr>
+		<tr><td style="line-height: 9pt;" colspan="3">&nbsp;</td>
+		</tr>
+	<tr> <td>
+    	<TMPL_VAR NAME=user>
+    	</td>
+  </tr> 
+  <tr> 
+    <td>new project name </td>
+    <td><input name="project_name" type="text" size="40" maxlength="40"><br><small>
+   	must <b>not</b> contain any characters except letters, digits, underscores - spaces are <b>not</b> allowed</small></td>
+  </tr> 
+   <tr> 
+    <td>add to existing project   </td>
+    <td><DIV id="feedback"></DIV> <small>
+    	<A HREF="http://www.homozygositymapper.org/documentation.html#add_vcf" target="_blank">impossible for VCF files</A></small>  </td>
+  </tr> 
+   <tr> 
+    <td>access restriction   </td>
+    <td><table border="0" cellpadding="0" cellspacing="0"><tr><td width="50">
+    <input name="access_restricted" type="checkbox" value="1" <TMPL_VAR NAME=access_restricted>></td><td>
+    <TMPL_VAR NAME=access_restriction_info></TD></TR></TABLE></TD>
+  </tr>  
+  <tr>
+	<td>chip     </td>
+    <td><select name="chip_no">
+		<TMPL_VAR NAME=chips>
+		<option value="VCF">VCF file</option>
+    </select>    </td>
+  </tr>
+  <tr> 
+    <td>genotype file     </td>
+   <td><input name="filename" type="file" size="40"><br><small>
+   	filename must <b>not</b> contain any characters except letters, digits, &amp; underscores  - spaces are <b>not</b> allowed</small>
+   	<br><small class="small light">this file must be plain text and can be zipped or gzipped - 
+   		<A HREF="http://www.homozygositymapper.org/sample_files.html" target="_blank">formats &amp; sample files</A></small>
+   		<br>
+   		<small><input type="checkbox" name="real_genotypes" value="1">Illumina file with real genotypes, coded as A/C/G/T -  due to the 
+   		conversion into A/B genotypes, this is relatively slow.</small>
+   		</td></tr>
+  <tr>
+	<td>VCF upload</td>
+    <td><table border="0" cellpadding="0"><tr><td style="font-weight:normal">minimum coverage</td>
+    <td><INPUT TYPE="text" name="min_cov" size="10" maxlength="4" VALUE="<TMPL_VAR NAME=min_cov>"><small></td>
+    <td style="font-weight:normal">use... </td><td>
+    	<SELECT name="genotype_source">
+    		<option value="dbSNP">only known variants</option>
+    		<option value="variants" selected>only variations from RefSeq</option>
+    		<option value="all">known variants plus variations from RefSeq</option>
+    	</SELECT>
+    </td></tr>
+    <tr><td colspan="2"><small>only relevant for VCF files - genotypes with a coverage below this value are neglected<br>you <b>must</b> set this value to 0 
+    unless your VCF files have the <A HREF="http://www.homozygositymapper.org/sample_files.html#vcf" target="_blank">DP flag in the FORMAT(!) column</A></small></td><td colspan="2"></td>
+</table>
+</td>
+  </tr>   	
+  <tr> 
+    <td>&nbsp;</td>
+    <td><br>
+      <input type="submit" name="Submit" value="Submit">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+<A href="/documentation.html#uploadgenotypes" target="doc">help</A>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+<A href="/tutorial.html#upload" target="doc">tutorial</A>   </td>
+  </tr>
+  <tr> 
+    <td colspan="2"><ul><small><TMPL_VAR NAME=additional_info>
+	<li>Project and file names <B>must not</b> contain any other characters than letters, digits and _.</li>
+	<li>There is no size limit for uploads but very large files (&gt; 100 MB) are 
+		        likely to cause server time-outs unless the connection is very fast.</li>
+	<li>Please zip or gzip your files to accelerate data upload - especially files 
+		        larger than 10 MB.</li>
+   <li>Upload times may be longer with Microsoft Internet Explorer than with Mozilla
+   	        Firefox. </li>		        
+	<li>If you experience network time-outs anyway, either split your file into smaller
+		        parts or write us an e-mail - we will certainly find a solution to upload your data.</li>
+	<li><B>Never</b> press reload after submitting (unless another page is displayed).</li>
+</small>
+</ul></td>
+  </tr>
+  
+  
+  
+</table>
+</form>
+
+</body>
+</html>

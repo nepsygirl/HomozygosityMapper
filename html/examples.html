@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>HomozygosityMapper - Examples</title>
+<link href="css.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="/HomozygosityMapper/HM_favicon.png" type="image/png">
+<link rel="icon" href="/HomozygosityMapper/HM_favicon.png" type="image/png">
+<style type="text/css">
+<!--
+a {
+	color: blue;
+	text-decoration: none; 
+}
+a:hover {
+	color: black !important;
+	text-decoration:underline; 
+}
+
+a:visited {
+	color: blue;
+}
+.heading {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16pt;
+	background-color: #CCCCCC;
+	text-indent: 20px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+}
+ul {
+	list-style-position: inside;
+	line-height: 10pt;
+	margin: 0px;
+	padding-left: 14px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+ol {
+	list-style-position: outside;
+	line-height: 10pt;
+	margin: 0px;
+	padding-left: 14px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+li {
+	text-align: left;
+	margin-left: 1px;
+	padding-left: 1px;
+	list-style-position: outside;
+	line-height: 12pt;
+	font-size: 12pt;
+}
+td {
+	vertical-align: top;
+	font-weight: normal !important;
+	font-size: 11 pt;
+}
+.bottom {
+	font-weight: normal !important;
+	text-align: center !important;
+	font-style: oblique !important;
+	font-size: 9pt;
+}
+.note {
+	font-family: "Times New Roman", Times, serif;
+	font-style: italic;
+	font-weight: bolder;
+}
+
+-->
+</style>
+</head>
+<body>
+<table  align="center" cellpadding="5" width="800" >
+  <tbody>
+    <tr>
+      <td ><img src="HM_logo_small.png" alt="HomozgosityMapper pedigree" width="111" height="124" align="left">
+        <h1 align="center"> HomozygosityMapper</h1>
+        <H2 align="center" style="line-height: 25pt; margin:0" class="blue">Examples</H2></td>
+    </tr>
+    <tr>
+      <td style="line-height: 9pt;">&nbsp;</td>
+    </tr>
+    <tr>
+      <td><p>A stand-alone version of HomozygosityMapper has been in use for three years now and was employed in several homozygosity mappings in parallel to the conventional linkage approach.</p>
+        <p>With permission of the authors (thank you very much!), we provide some examples of mappings with HomozygosityMapper using Affymetrix 10K, 50K, or 250K arrays in which the disease gene (or, in one case, a disease-linked region) could be identified. In some of them, our software was employed before or parallel to conventional linkage, in others retrospectively as a proof of principle.  We also provide a simulation of an Affymetrix SNP6 array. <br>
+        Please note that for gene identification usually further investigations (such as genotyping of microsatellite markers) were performed. The additional information is not included here so the published regions may have eventually become much smaller than in the original analysis where only SNP genotypes hab been at hand.</p>
+        <p>We encourage every researcher who uses this website to map a gene to make her or his data public. If you write an e-mail, we will list your publication here and provide a direct link to the genotypes and results. <br>
+          <br>
+          <strong>The title always links directly to the mapping, the journal to the PubMed abstract.</strong><br>
+        </p>
+        <p><a href="/HM/ShowRegion.cgi?analysis_no=61" target="_blank"><strong>RAB23 mutations in Carpenter syndrome imply an unexpected role for hedgehog signaling in cranial-suture development and obesity.</strong></a><br>
+          Jenkins  D, Seelow D, Jehee FS, Perlyn CA, Alonso LG, Bueno DF, Donnai D,  Josifova D, Mathijssen IM, Morton JE, Orstavik KH, Sweeney E, Wall SA,  Marsh JL, Nurnberg P, Passos-Bueno MR, Wilkie AO.<br>
+          <a href="http://www.ncbi.nlm.nih.gov/pubmed/17503333" target="_blank">Am J Hum Genet. 2007 Jun;80(6):1162-70. </a> <br>
+          <span class="note">50K data. Disease gene: RAB23,  chromosome 6, 57.2 Mbp<br>
+          Note the   heterozygous genotypes in the middle of the target interval. HomozygosityMapper ignores such obvious genotyping errors.          </span></p>
+        <p><a href="/HM/ShowRegion.cgi?analysis_no=77" target="_blank"><strong>Mutations  in the tight-junction gene claudin 19 (CLDN19) are associated with  renal magnesium wasting, renal failure, and severe ocular involvement.</strong></a><br>
+          Konrad  M, Schaller A, Seelow D, Pandey AV, Waldegger S, Lesslauer A, Vitzthum  H, Suzuki Y, Luk JM, Becker C, Schlingmann KP, Schmid M,  Rodriguez-Soriano J, Ariceta G, Cano F, Enriquez R, Juppner H,  Bakkaloglu SA, Hediger MA, Gallati S, Neuhauss SC, Nurnberg P, Weber S.<br>
+          <a href="http://www.ncbi.nlm.nih.gov/pubmed/17033971" target="_blank">Am J Hum Genet. 2006 Nov;79(5):949-57. </a>  <br>
+          <span class="note">50K data. Disease gene: CLDN19, chromosome 1, 43.0 Mbp </span></p>
+        <p> <strong>A systematic approach to mapping recessive disease genes in individuals from outbred populations.</a><br>
+         <a href="/HM/ShowRegion.cgi?analysis_no=214" target="_blank">Senior-Loken example  </a> | <a href="/HM/ShowRegion.cgi?analysis_no=94" target="_blank">Nephrotic  syndrome example</a></strong><br>
+         Hildebrandt  F, Heeringa SF, R&uuml;schendorf F, Attanasio M, N&uuml;rnberg G, Becker C,  Seelow D, Huebner N, Chernin G, Vlangos CN, Zhou W, O'Toole JF, Hoskins  BE, Wolf MT, Hinkes BG, Chaib H, Ashraf S, Allen SJ, Vega-Warner V,  Wise E, Harville HM, Lyons RH, Washburn J, Macdonald J, N&uuml;rnberg P,  Otto EA.<br><a href="http://www.ncbi.nlm.nih.gov/pubmed/19165332" target="_blank">PLoS Genet. 2009 Jan;5(1):e1000353. </a><br>
+          <span class="note">250K data. <br>
+          Disease gene (Senior-Loken syndrome): IQCB1, chromosome 3, 123.0 Mbp<br>
+          Disease gene (Nephrotic syndrome): NPHS2, chromosome 1, 177.8 Mbp<br> 
+          The Senoir-Loken syndrome example shows that different homozygous haplotypes can be found in the patients (who are from different families). Due to the clustering of possibly wrongly typed heterozygous markers, HomozygosityMapper detects 3 adjacent homozygous stretches. The disease gene, IQCB1, can be found in the interval scoring second place.</span> </p>
+         <p><a href="/HM/ShowRegion.cgi?analysis_no=192" target="_blank"><strong>Dyschromatosis universalis hereditaria: evidence for autosomal recessive inheritance and identification of a new locus on chromosome 12q21-q23.</strong></a><br>
+          Stuhrmann M, Hennies HC, Bukhari IA, Brakensiek K, N&uuml;rnberg G, Becker C, Huebener J, Miranda MC, Frye-Boukhriss H, Knothe S, Schmidtke J, El-Harith EH. <br>
+          <a href="http://www.ncbi.nlm.nih.gov/pubmed/18462451" target="_blank">Clin Genet. 2008 Jun;73(6):566-72. <br>
+          </a> <span class="note">10K data.  No disease gene could be identified, but the region was mapped to 80  - 101 Mbp on chromosome 12.<br>
+          Here, four loci are detected. Visual inspection reveals that three of them are regions in which also all(!) controls display homozygous stretches. The one without is indeed the disease-linked region.</span> </p>
+         <a href="/HM/ShowRegion.cgi?analysis_no=178" target="_blank"><strong>Impaired glycosylation and cutis laxa caused by mutations in the vesicular H+-ATPase subunit ATP6V0A2.</strong></a> <br>
+        Kornak U, Reynders E, Dimopoulou A, van Reeuwijk J, Fischer B, Rajab A, Budde B, N&uuml;rnberg P, Foulquier F; ARCL Debr&eacute;-type Study Group, Lefeber D, Urban Z, Gruenewald S, Annaert W, Brunner HG, van Bokhoven H, Wevers R, Morava E, Matthijs G, Van Maldergem L, Mundlos S. <br>
+        <a href="http://www.ncbi.nlm.nih.gov/pubmed/18157129" target="_blank">Nat Genet. 2008 Jan;40(1):32-4. </a><br>
+        <span class="note">10K data. Disease gene: ATP6V0A2, chromosome 12, 122.8 Mbp <br>
+        For the publication, also a 250K array plus microsatellite markers were employed.</span> 
+        <p><a href="/HM/ShowRegion.cgi?analysis_no=195" target="_blank"><strong>Familial thrombocytosis caused by the novel germ-line mutation p.Pro106Leu in the MPL gene.</strong></a><br>
+          El-Harith  el-HA, Roesl C, Ballmaier M, Germeshausen M, Frye-Boukhriss H, von  Neuhoff N, Becker C, N&uuml;rnberg G, N&uuml;rnberg P, Ahmed MA, H&uuml;bener J,  Schmidtke J, Welte K, Stuhrmann M.<br>
+          <a href="http://www.ncbi.nlm.nih.gov/pubmed/19036112" target="_blank">Br J Haematol. 2009 Jan;144(2):185-94. </a><br>
+          <span class="note">250K data.  Disease gene: MPL, chromosome 1, 43.6 Mbp.<br>
+          Here, two loci are detected. One can be excluded by the long autozygous stretches in two of the unaffected siblings.</span> </p>
+        <p><a href="/HM/ShowRegion.cgi?analysis_no=145" target="_blank"><strong>tRNA splicing endonuclease mutations cause pontocerebellar hypoplasia.</strong></a><br>
+          Budde BS, Namavar Y, Barth PG, Poll-The BT, N&uuml;rnberg G, Becker C, van Ruissen F, Weterman MA, Fluiter K, te BE, Aronica E, van der Knaap MS, H&ouml;hne W, Toliat MR, Crow YJ, Steinling M, Voit T, Roelenso F, Brussel W, Brockmann K, Kyllerman M, Boltshauser E, Hammersen G, Willemsen M, Basel-Vanagaite L, Kr&auml;geloh-Mann I, de Vries LS, Sztriha L, Muntoni F, Ferrie CD, Battini R, Hennekam RC, Grillo E, Beemer FA, Stoets LM, Wollnik B, N&uuml;rnberg P, Baas F. <br>
+          <a href="http://www.ncbi.nlm.nih.gov/pubmed/18711368" target="_blank">Nat Genet. 2008 Sep;40(9):1113-8.</a><br>
+          <span class="note">10K data. Disease gene: TSEN54, chromosome 17, 71.0 Mbp.<br>
+          This example depicts a situation for which HomozygosityMapper is not ideally suited: Patients are from different families or pedigree branches. The shared homozygous region is thus very short but only a 10K chip was employed. The authors also genotyped microsatellite markers.</span> </p>
+        <p> <a href="/HM/ShowRegion.cgi?analysis_no=34" target="_blank"><strong>Crisponi syndrome is caused by mutations in the CRLF1 gene and is allelic to cold-induced sweating syndrome type 1.</strong></a> <br>
+          Crisponi L, Crisponi G, Meloni A, Toliat MR, Nurnberg G, Usala G, Uda M, Masala M, Hohne W, Becker C, Marongiu M, Chiappe F, Kleta R, Rauch A, Wollnik B, Strasser F, Reese T, Jakobs C, Kurlemann G, Cao A, Nurnberg P, Rutsch F. <br>
+          <a href="http://www.ncbi.nlm.nih.gov/pubmed/17436252" target="_blank">Am J Hum Genet. 2007 May;80(5):971-81. </a><br>
+          <span class="note">250K data. Disease gene: CRLF1, chromosome 19, 18.6 Mbp.</span></p>
+        <p> <a href="/HM/ShowRegion.cgi?analysis_no=71" target="_blank"><strong>Loss  of nephrocystin-3 function can cause embryonic lethality,  Meckel-Gruber-like syndrome, situs inversus, and  renal-hepatic-pancreatic dysplasia.</strong></a><br>
+          Bergmann  C, Fliegauf M, Br&uuml;chle NO, Frank V, Olbrich H, Kirschner J, Schermer B,  Schmedding I, Kispert A, Kr&auml;nzlin B, N&uuml;rnberg G, Becker C, Grimm T,  Girschick G, Lynch SA, Kelehan P, Senderek J, Neuhaus TJ, Stallmach T,  Zentgraf H, N&uuml;rnberg P, Gretz N, Lo C, Lienkamp S, Sch&auml;fer T, Walz G,  Benzing T, Zerres K, Omran H. <a href="http://www.ncbi.nlm.nih.gov/pubmed/18371931"  target="_blank"><br>
+          Am J Hum Genet. 2008 Apr;82(4):959-70. </a><br>
+          <span class="note">10K data. Disease gene: NPHP3, chromosome 3, 133.9 Mbp <br>
+          Here, two loci are found. Since no unaffected sibligs were available, it is impossible to decide which is the correct one. The same situation arises with linkage analysis. However, typing some microsatellite markers in both regions in unaffected siblings can solve such a problem at a low price.</span> </p>
+        <p><a href="/HM/ShowRegion.cgi?analysis_no=69" target="_blank"><strong>Mutations of the CEP290 gene encoding a centrosomal protein cause Meckel-Gruber syndrome.</strong></a><br>
+          Frank  V, den Hollander AI, Br&uuml;chle NO, Zonneveld MN, N&uuml;rnberg G, Becker C, Du  Bois G, Kendziorra H, Roosing S, Senderek J, N&uuml;rnberg P, Cremers FP,  Zerres K, Bergmann C.<br>
+          <a href="http://www.ncbi.nlm.nih.gov/pubmed/17705300"  target="_blank">Hum Mutat. 2008 Jan;29(1):45-52.</a><br>
+          <span class="note">50K data. Disease gene: CEP290, chromosome 12, 87.0 Mbp.</span></p>
+        <hr>
+        <p><strong>SNP6 example</strong></p>
+        <p>
+          Since we do not have any Affymetrix SNP5 or SNP6 data yet that can be made publicly available, we include an example based on Affymetrix' sample data for the SNP6 array.<br>
+          For this example, genotypes of 6 unrelated individuals from the HapMap CEU population were extracted and a common homozygous region on chromosome 4 around 30 Mbp with a minimum length of 2 Mbp was introduced. <br>
+          Note that there are large regions on the arrays, in which many adjacent SNPs could not be called - such regions may end up as false positives in HomozygosityMapper.   </p> 
+        <ul>
+         <li> <a href="/HM/ShowRegion.cgi?analysis_no=251" target="_blank">genome-wide homozygosity SNP6 simulation</a>            </li>
+         <li>          <a href="/HM/DisplayGenotypes.cgi?chromosome=1&analysis_no=251&margin=20000&start_snp=12752144&end_snp=1772290" target="_blank">long region of adjacent SNPs with unknown genotypes</a>          </li>
+         <li><a href="documentation.html#benchmarks" target="_blank">Performance</a></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>

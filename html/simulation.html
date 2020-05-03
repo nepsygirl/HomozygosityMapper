@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>HomozygosityMapper - Simulations</title>
+<link href="css.css" rel="stylesheet" type="text/css">
+<LINK href="doc.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="/HomozygosityMapper/HM_favicon.png" type="image/png">
+<link rel="icon" href="/HomozygosityMapper/HM_favicon.png" type="image/png">
+</head>
+
+<body>
+</head><body>
+<table  align="center" cellpadding="5" width="800" >
+  <tbody>
+	 <tr>
+      <td ><img src="HM_logo_small.png" alt="HomozgosityMapper pedigree" width="111" height="124" align="left">        <h1 align="center">      HomozygosityMapper</h1>
+      <H2 align="center" style="line-height: 25pt; margin:0" class="blue">Documentation</H2></td>
+    </tr>
+		<tr><td style="line-height: 9pt;">&nbsp;</td>
+		</tr>
+    <TR>
+<tr><td>
+<p>Here we present simulations that demonstrate the effectiveness of HomozygosityMapper's approach to autozygosity mapping. </p>
+<p>For this simulation, Affymetrix' sample genotypes for their Hind 50K chip were used.
+  Into the real genotypes, homozygous stretches were introduced for the samples considered to bear the
+  disease-causing allele. The length of the smallest artifical homozygous region is alway specified in the experimental
+  description, in the other affected samples, the region may begin up to 3 Mbp earlier and end up to 3 Mbp later; the
+  actual length was randomised. An analysis, in which the limits of the homozygous regions would not be determined by one sample alone but by recombinations in two different samples, would yield even higher homozygosity scores. <br>
+  To account for the homozygous stretches in children of consangeneous marriages, up to 6 random stretches of homozygosity (each with a 50% chance) were 
+  introduced into all samples at random positions, each with a length up to 10 Mbp.
+  To demonstrate the robustness needed to perform well on 'bad' chips, genotyping errors were introduced into the homozygous stretches with a probabily specified
+  in the experimental description. <br>
+  The risk of heterogeneity was addressed by giving the specified number of samples homozygous stretches at a second locus;
+the rules for those being the same as for those at the 'real' locus.</p>
+<p>We also show that founder mutations can be addressed with HomozygosityMapper. In this example, only short homozygous regions around a given locus were introduced. For the first sample, a homozygous region of 50 kbp was introduced into the first samples, the other samples were given homozygous stretches between 0 and 200 kbp at the same locus. <br>
+Since the resolution of a 50K chip is not high enough to guarantee the capture of at least one homozygous SNP within such a short region, we used the  Affymetrix Genome-Wide Human SNP Array 6.0 for this simulation. This chip includes 900.000 SNPs and is hence suited for association analysis approaches which require a short distance between marker and the gene of interest. </p>
+<p>Sinc</p>
+<p>SIMULATION_6M_low_gt_error_rate<br>
+  SIM_6M_low_error_rate_5_affected<br>
+  Simulation; a homozygous interval of 6 Mbp was introduced into Affymetrix' sample genotypes with a GT error rate of 0.5% - details can be found on the examples web page.<br>
+  11 individuals were used as samples (case or control, depending on the simulation):<br>
+  NA07019, NA06993, NA07034, NA07056, NA07357, NA10835, NA10846, NA10854, NA10857, NA10861, NA11830, NA11839</p>
+<p><br>
+  <br>
+</p>
+<table border="0" cellpadding="5">
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>affected samples</td>
+    <td>affected samples</td>
+    <td>affected samples at second locus </td>
+    <td>shortest homozygous region [Mbp] </td>
+    <td>first locus [chr: Mbp] </td>
+    <td>scored</td>
+    <td>other loci found </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><a href="ShowRegion.cgi?project_no=38&analysis_no=51">Demonstration of robustness against genetic heterogeneity</a> <br>
+      (1st locus: NA07019,NA06993,  NA07034, NA07056, NA07357<br>
+      second locus: 
+    NA10835, NA10846, NA10854)</td>
+    <td>5</td>
+    <td>3</td>
+    <td>&nbsp;</td>
+    <td>3: 30 </td>
+    <td>#1</td>
+    <td>yes</td>
+  </tr>
+  <tr>
+    <td><a href="ShowRegion.cgi?project_no=37&analysis_no=50">Demonstration of robustness against genotyping errors</a></td>
+    <td>3</td>
+    <td>&nbsp;</td>
+    <td>2</td>
+    <td> 4: 30</td>
+    <td>#1</td>
+    <td>no</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table></td></tr></tbody></table>
+</body>
+</html>

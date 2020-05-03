@@ -1,0 +1,75 @@
+a {
+	color: blue;
+	text-decoration: none; 
+}
+a:hover {
+	color: black !important;
+	text-decoration:underline; 
+}
+a:visited {
+	color: blue;
+}
+.heading {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16pt;
+	text-indent: 20px;
+}
+.headingrow {
+	background-color: #CCCCCC;
+	padding-left: 14px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+}
+ul {
+	list-style-position: inside;
+	line-height: 16pt;
+	margin: 0px;
+	padding-left: 14px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+li {
+	text-align: left;
+	margin-left: 1px;
+	padding-left: 1px;
+	line-height: 16pt;
+	list-style-position: outside;
+}
+td {
+	vertical-align: top;
+	font-weight: normal;
+	font-size: 11pt;
+	text-align: justify;
+}
+.bottom {
+	font-weight: normal !important;
+	text-align: center !important;
+	font-style: oblique !important;
+	font-size: 9pt;
+}
+
+.link {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	text-align: right;
+	vertical-align: middle;
+	margin-left: 15px;
+}
+body {
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight: normal;
+}
+h1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 24pt;
+	vertical-align: top;
+	margin: 0px;
+	padding: 0px;
+}
+h2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18pt;
+}
+.blue {
+	color: blue;
+}
