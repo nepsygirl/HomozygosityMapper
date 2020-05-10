@@ -105,7 +105,7 @@ sub conv_VCF
 	while (<$fh>) 
 	{
 		# etwas geanderte Bedingung(original: /^#CHROM/). 
-                # Falls statt CHROM sowas wie #CHR, chrom oder noch was falsches steht.
+                # Falls statt CHROM sowas wie chrom oder noch was falsches steht.
 		if (/^#[^#]/)
 		{
 			unless (/^#CHROM\tPOS\tID\tREF\tALT\tQUAL\tFILTER\tINFO\tFORMAT\t.+/i)
