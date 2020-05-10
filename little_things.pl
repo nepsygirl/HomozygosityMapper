@@ -82,6 +82,7 @@ sub get_recoded_GT
 		if ($1 eq $2)
 		{
 			$i = ($GT_hash{$Ref_Alt_array[$1]} << 1) | 1;
+			# " " muss naturlich weg, es ist hier nur um print Ausgabe ubersichtlicher zu machen
 			push(@recoded_GT,$i," ");
 		}
 		else{push(@recoded_GT,0," ");}
