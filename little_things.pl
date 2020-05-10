@@ -62,6 +62,7 @@ sub get_recoded_GT
 	# das ist eine vereinfachte Version, da werden nur Homozygote wirklich recoded,
 	# alle Heterozygote = 0. Man kann es aber erweitern und Hetero auch recodieren.
 
+	# als values kann man auch bitstrings benutzen, falls es mit int nicht klappt
 	my %GT_hash = ("." => 0, "i" => 1, "A" => 2, "C" => 3, "G" => 4, "T" => 5);
 	my $i;
 	my @recoded_GT;
