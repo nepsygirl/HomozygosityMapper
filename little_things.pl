@@ -30,7 +30,7 @@ sub get_recoded_GT
 
 	my $line = shift;
 
-	# (]\d+:\d+])* steht fur: G]17:198982] oder ]13:123456]T
+	# (]\d+:\d+])* steht fur: G]17:198982] oder ]13:123456]T oder aehnliches
 	$line =~ m/^\w+ \t \d+ \t [\w\.]+ \t ([ACGT\.]+) \t (]\d+:\d+])*([ACGT\.\,]*)(]\d+:\d+])*\t/xi;
 
 	# array mit verkuerzten GT(nach 4-bit Codierung, wie im Skype)
