@@ -69,6 +69,7 @@ my $u=0;
 				$GT  = $9;
 				
 				# Geschlechtschromosomen kann man weglassen(eine if Bed. einsetzen, die sie dann uberspringt )
+				# fur Haploide wird der Code sich beschweren(else Bed. mit Fehlermeldung)
 				$Chr =~ /\d+|[Yy]|[Xx]/;
 				$Chr = $&;
 				if ($Chr eq "Y" || $Chr eq "y"){$Chr = 23;}
