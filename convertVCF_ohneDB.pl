@@ -62,15 +62,15 @@ my $u=0;
 			if (/^(\w+)  \t  (\d+)  \t  [^\t]+  \t  ([^\t]|[ACGTN]+)  \t  [^\.ACGTN\*]*(((\.|[ACGTN\*]+),{0,1})+)[^\.ACGTN\*]*   \t  [^\t]+  \t  [^\t]+  \t  [^\t]+  \t  [^\t]+  \t  (( (\.|\d+)[\|\/](\.|\d+) [^\t\s]* \t{0,1}){$samples_n})/xi)
 			
 			{
-				$Chr = $1;
+				#$Chr = $1;
 				$Pos = $2;
 				$Ref = $3;
 				$Alt = $5;
-				$GT  = $9;
+				$GT  = $7;
 				
 				# Geschlechtschromosomen kann man weglassen(eine if Bed. einsetzen, die sie dann uberspringt )
 				# fur Haploide wird der Code sich beschweren(else Bed. mit Fehlermeldung)
-				$Chr =~ /\d+|[Yy]|[Xx]/;
+				$& =~ /\d+|[Yy]|[Xx]/;
 				$Chr = $&;
 				if ($Chr eq "Y" || $Chr eq "y"){$Chr = 23;}
 				if ($Chr eq "X" || $Chr eq "x"){$Chr = 24;}
@@ -105,7 +105,9 @@ my $u=0;
 				{
 					if ($1 eq $2)
 					{
-						$i = $GT_hash{$Ref_Alt_array[$1]};
+						if ($1 eq "."){$i = 1;}
+						else {$i = $GT_hash{$Ref_Alt_array[$1]};}
+						#$i = $GT_hash{$Ref_Alt_array[$1]};
 						push(@recoded_GT,$i," ");
 					}
 					else{push(@recoded_GT,0," ");}
