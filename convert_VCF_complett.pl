@@ -18,7 +18,7 @@ print "Opened database successfully\n";
 # create table
 
 my $table = qq(CREATE TABLE HomozygozityMapper
-     (Probe	   SMALLINT,
+     (Sample	   SMALLINT,
       Chr          SMALLINT,
       Pos           INT,
       GT            BIT,
@@ -27,14 +27,14 @@ my $rv = $dbh->do($table);
 if($rv < 0) {
    print $DBI::errstr;
 } else {
-   print "Table created successfully\n";
+   print "Table created successfully\n\n";
 }
 
 #-------------#
 
 
-# ohne DB Insert: 10Mb ~ 1sec
-# mit DB Insert: 10Mb ~ 25sec => optimieren
+# ohne DB Insert: 10Mb ~ 1.5sec
+# mit DB Insert: 10Mb ~ 45sec => optimieren
 
 sub conv_VCF 
 {
@@ -79,12 +79,13 @@ my $u=0;
 		my $alt_pos_1;
 
 		# der rechteste Bit fur Homozygote(1), Heterozygote(0)
-		my %GT_hash = ("." => 1, "i" => 3, "A" => 5, "C" => 7, "G" => 9, "T" => 11, "N" => 3, "a" => 5, "c" => 7, "g" => 9, "t" => 11, "n" => 3, "*" => 1);
+		my %GT_hash = ("." => 1, "A" => 5, "C" => 7, "G" => 9, "T" => 11, "N" => 3, "a" => 5, "c" => 7, "g" => 9, "t" => 11, "n" => 3, "*" => 1, "i" => 3);
 		# die rows(enthalten Values fuer die DB), werden aneinandergehaengt($string). Laufzeit wird deutlich besser.
 		#my $rows = qq(INSERT INTO HomozygozityMapper (Probe,Chr,Pos,GT,Length) VALUES (?,?,?,?,?););
 
 		my $counter = 0;
-		my $rows = qq/INSERT INTO HomozygozityMapper (Probe,Chr,Pos,GT,Length) VALUES (?,?,?,?,?)/;
+		my $samples_string = "?,?,?,?";
+		my $rows = qq/INSERT INTO HomozygozityMapper (Sample,Chr,Pos,GT,Length) VALUES (?,?,?,?,?)/;
 		my $sth = $dbh->prepare($rows);
 
 		# buffer and co
@@ -106,34 +107,34 @@ my $u=0;
 				if ($1 =~ /\d+/) { $Chr = $&; }
 				else { next; }
  
-				# Referenz ueberpruefen
-				if ($Ref =~ /\.|[ACGTN]+/i) { $Ref = $&; }
+				# REF ueberpruefen
+				# nur der erste Buchstabe wird untersucht und gespeichert.
+				if ($Ref =~ /\.|[ACGTN]/i) 
+				{ $Ref = $GT_hash{$&};
+				  @Ref_Alt_array = ();
+				  $Ref_Alt_array[0] = $Ref;}
 				else { next; }
 
 				# erst die Proben kontrollieren
-				if ($GT =~ / ( [\.|\d+] [\|\/] [\.|\d+] [^\t]* \t{0,1} ) {$samples_n} /x)
+				if ($GT =~ / ( [\.|\d+] [\|\/] [\.|\d+] [^\t]* \t? ) {$samples_n} /x)
 				{
 					# Die alternativen Allele
-					if ($Alt =~ /\.|[ACGTN\*]+/ig)
+					if ($Alt =~ /(\.|[ACGTN\*])[ACGTN\*]*,?/ig)
 					{
-						@Ref_Alt_array = ();
-						my $ref = substr($Ref,0,1);
-						push (@Ref_Alt_array, $GT_hash{$ref});
-
-
-						if ( $ref ne substr($&,0,1) ) { push (@Ref_Alt_array, 3); }
+						if ( $Ref ne $GT_hash{$1} ) { push (@Ref_Alt_array, 3); }
 						else { push (@Ref_Alt_array, $Ref_Alt_array[0]); }
 						
 
-						while ($Alt =~ /\.|[ACGTN\*]+/ig)
+						while ($Alt =~ /(\.|[ACGTN\*])[ACGTN\*]*,?/ig)
 						{
-							if ( $ref ne substr($&,0,1) ) { push (@Ref_Alt_array, 3); }
-							else { push (@Ref_Alt_array, $Ref_Alt_array[0]); }
+							if ( $Ref ne $GT_hash{$1} ) { push (@Ref_Alt_array, 3); }
+							else { push (@Ref_Alt_array, $Ref); }
 						}
 					}
 					else { next; }
 
-					# die GT rekodieren
+					# die GT rekodieren, Heterozygote sind alle 0, Homozygote sind ungerade wie oben in Hash. 
+					# nicht case sensitive: "a" != "A" z.B
 					@recoded_GT=();
 				
 					while ($GT=~m/ ((\.)|\d+)  [\/\|]  (\.|\d+)/gx)
@@ -196,23 +197,54 @@ foreach (@ARGV){
 $time_begin = time();
 conv_VCF($_);
 $end_time = time();}
-printf("time: %.4f\n", $end_time - $time_begin);
-
+printf("time: %.4f\n\n", $end_time - $time_begin);
 =o
-my $stmt = qq(SELECT Probe,Chr,Pos,GT,Length  from HomozygozityMapper;);
+my $stmt = qq(SELECT Sample,Chr,Pos,GT,Length  from HomozygozityMapper;);
 my $sth = $dbh->prepare( $stmt );
 my $rv = $sth->execute() or die $DBI::errstr;
 if($rv < 0) {
    print $DBI::errstr;
 }
 
-
 while(my @row = $sth->fetchrow_array()) {
 #print @row ,"\n";
-      print "Probe = ". $row[0] . "\n";
+      print "Sample = ". $row[0] . "\n";
       print "Chr = ". $row[1] . "\n";
       print "Pos = ". $row[2] ."\n";
       print "GT = ". $row[3] ."\n";
       print "Length =  ". $row[4] ."\n\n";
 }
+=cut
+
+
+=o
+				if ($done)
+				{
+					$counter = 0;
+					while ($counter != $samples_n)
+					{
+
+						if ($recoded_GT_[$counter]) { push (@push_it, $counter+1, $Chr_, $Pos_, $recoded_GT_[$counter], $Pos - $Pos_); }
+						else { push (@push_it, $counter+1, $Chr_, $Pos_, $recoded_GT_[$counter], 0,); }
+						$counter++;
+					}
+				}
+				else {$done = 1;}
+				$Chr_ = $Chr;
+				$Pos_ = $Pos;
+				@recoded_GT_ = @recoded_GT;
+
+				if ($count eq 10000) 
+				{
+					$counter = 0;
+					$count = $count * $samples_n;
+					while ($count != 0)
+					{
+						$sth ->execute(@push_it[$counter..$counter+4]);
+						$counter = $counter + 5;
+						$count--;
+					}
+					@push_it = ();
+				}
+				$count++;
 =cut
